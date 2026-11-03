@@ -1,0 +1,452 @@
+/* ============================================================
+   COMPETITION DETAIL PAGES — brand theme (extends event-page-v2.css)
+   Load AFTER event-page-v2.css. trial.css is NOT needed.
+   Registration form styles come from event-page-v2.css.
+
+   Deep Violet #4320a6 · Red #f11313 · Dark Grey #232323
+   White #ffffff · Light Grey #f5f5f7
+   (colour variables are defined in event-page-v2.css)
+   ============================================================ */
+
+:root {
+  --cd-max: 1100px;   /* change this one number to resize every section */
+}
+
+/* ---------- SECTION 1: HERO ---------- */
+.cd-hero { min-height: 560px; }
+
+.cd-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px clamp(24px, 6vw, 90px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(24px, 5vw, 60px);
+  flex-wrap: wrap;
+}
+
+.cd-hero-left { flex: 0 1 320px; display: flex; justify-content: center; }
+.cd-hero-logo { width: 100%; max-width: 300px; height: auto; display: block; }
+
+.cd-hero-right {
+  flex: 1 1 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.cd-hero-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cd-hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.2vw, 36px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 22px;
+}
+
+/* Date / Time / Venue — single unified box */
+.cd-hero-details {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 6px 8px;
+  backdrop-filter: blur(6px);
+  width: fit-content;
+}
+
+.venue-link {
+    transition: color 0.3s ease;
+}
+
+.venue-link:hover {
+    color: red;
+}
+
+.cd-hero-details .v2-comp-details-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+}
+.cd-hero-details .v2-comp-details-label { color: rgba(255, 255, 255, 0.65); }
+.cd-hero-details .v2-comp-details-value { color: #fff; font-weight: 800; }
+.cd-hero-details .v2-comp-details-item i { color: #f11313; }
+.cd-hero-details .v2-comp-details-divider {
+  display: block;
+  width: 1px;
+  align-self: center;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- SHARED CONTAINER (same width for all sections) ---------- */
+.cd-levels,
+.cd-requirements,
+.cd-registration,
+.cd-rules,
+.cd-contact {
+  max-width: var(--cd-max);
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Full-width alternating bands (same technique as event-page-v2.css).
+   Registration is a .reg-page, so it already gets its grey band from there.
+   Order:  levels grey → requirements white → registration grey → rules white → contact grey */
+.cd-levels,
+.cd-requirements,
+.cd-rules,
+.cd-contact {
+  position: relative;
+  display: flow-root;
+  clip-path: inset(0 -100vmax);
+}
+
+.cd-levels       { background: #f5f5f7; box-shadow: 0 0 0 100vmax #f5f5f7; padding-bottom: 64px; }
+.cd-requirements { background: #fff;    box-shadow: 0 0 0 100vmax #fff;    padding-bottom: 64px; }
+.cd-rules        { background: #fff;    box-shadow: 0 0 0 100vmax #fff;    padding-bottom: 72px; }
+.cd-contact      { background: #f5f5f7; box-shadow: 0 0 0 100vmax #f5f5f7; padding-top: 56px; padding-bottom: 56px; }
+
+.cd-registration.reg-page { padding-left: 24px; padding-right: 24px; }
+
+/* Dividers match the container instead of stretching beyond it */
+.cd-levels .sec-divider,
+.cd-requirements .sec-divider,
+.cd-registration .sec-divider,
+.cd-rules .sec-divider {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* ---------- SECTION 2: CATEGORIES / GROUPS (grey band, white cards) ---------- */
+.cd-levels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.cd-levels-grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.cd-level-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 28px 26px;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.cd-level-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+
+.cd-level-stage {
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .6px;
+  padding: 5px 14px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  color: #fff;
+}
+.cd-stage-1 { background: var(--violet); }
+.cd-stage-2 { background: var(--dark); }
+.cd-stage-3 { background: var(--red); }
+
+.cd-level-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--purple);
+  margin-bottom: 6px;
+}
+.cd-level-age { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; }
+
+.cd-level-bar { width: 100%; height: 6px; border-radius: 4px; background: var(--bg-card-soft); overflow: hidden; }
+.cd-level-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: var(--violet);
+}
+
+/* ---------- CATEGORY CARD PHOTOS ---------- */
+.cd-level-photo {
+  margin: -22px -18px 18px;            /* cancels the card padding so the photo touches the card edges */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: calc(var(--radius-card) - 1.5px) calc(var(--radius-card) - 1.5px) 0 0;
+}
+.cd-level-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ---------- SECTION 3: COMPETITION REQUIREMENTS (white band, grey cards) ---------- */
+.cd-req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.cd-req-card {
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: none;
+  padding: 30px 28px;
+}
+
+.cd-req-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--purple);
+  margin-bottom: 18px;
+}
+.cd-req-title i { font-size: 20px; color: var(--red); }
+
+.cd-req-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.cd-req-list li { font-size: 13.5px; color: var(--text-body); padding-left: 18px; position: relative; }
+.cd-req-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+.cd-req-note { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 18px; }
+
+.cd-req-btn {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--violet);
+  padding: 9px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background .2s ease, transform .2s ease;
+}
+.cd-req-btn:hover { background: var(--red); opacity: 1; }
+
+
+/* Registration images: desktop and mobile */
+.reg-split-img picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.reg-split-img picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mobile image selection */
+@media (max-width: 768px) {
+  .reg-split-img {
+    overflow: hidden;
+  }
+}
+
+
+/* ---------- REQUIREMENT CARD PHOTOS ---------- */
+.cd-req-photo {
+  margin: -30px -28px 20px;            /* cancels the card padding */
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  border-radius: calc(var(--radius-card) - 1.5px) calc(var(--radius-card) - 1.5px) 0 0;
+}
+.cd-req-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ---------- SECTION 4: REGISTRATION ----------
+   Uses .reg-split / .reg-form / .reg-school-link from event-page-v2.css
+   (grey band, dark form card). Nothing page-specific needed here. */
+
+/* ---------- SECTION 5: ACCORDION (white band, grey items) ---------- */
+.cd-accordion { max-width: 100%; display: flex; flex-direction: column; gap: 14px; }
+
+.cd-acc-item {
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.cd-acc-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  padding: 20px 24px;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+}
+
+.cd-acc-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+  background: var(--violet);
+  border-radius: 50%;
+}
+
+.cd-acc-title { flex: 1; font-family: var(--font-display); font-size: 15px; font-weight: 800; color: var(--purple); }
+
+.cd-acc-icon { flex-shrink: 0; font-size: 18px; color: var(--violet); transition: transform .25s ease; }
+.cd-acc-item.active .cd-acc-icon { transform: rotate(180deg); }
+.cd-acc-item.active .cd-acc-header { border-bottom: 1px solid var(--border); }
+
+.cd-acc-panel { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+
+.cd-acc-panel-inner { padding: 20px 24px 26px; font-size: 13.5px; color: var(--text-body); line-height: 1.7; }
+.cd-acc-panel-inner p { margin-bottom: 12px; }
+.cd-acc-panel-inner p:last-child { margin-bottom: 0; }
+
+.cd-acc-subtitle { font-family: var(--font-display); font-size: 13.5px; font-weight: 800; color: var(--purple); margin: 16px 0 10px; }
+
+.cd-acc-formula {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--purple);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+}
+
+.cd-acc-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+.cd-acc-list li { padding-left: 18px; position: relative; }
+.cd-acc-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+}
+.cd-acc-list-numbered { counter-reset: cdnum; }
+.cd-acc-list-numbered li { counter-increment: cdnum; padding-left: 22px; }
+.cd-acc-list-numbered li::before {
+  content: counter(cdnum) '.';
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  color: var(--red);
+  font-weight: 700;
+  font-size: 12px;
+  top: 0;
+}
+
+.cd-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+.cd-table th, .cd-table td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.cd-table th {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  color: var(--violet);
+  text-transform: uppercase;
+  background: #fff;
+}
+.cd-table tr:last-child td { border-bottom: none; }
+
+/* ---------- CONTACT (used on Inspire / rental pages) — grey band, white card ---------- */
+.cd-contact-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 30px 32px;
+}
+
+.cd-contact-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--purple);
+  margin-bottom: 18px;
+}
+.cd-contact-title i { font-size: 20px; color: var(--red); }
+
+.cd-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.cd-contact-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 8px;
+}
+
+.cd-contact-grid p { font-size: 14px; font-weight: 600; color: var(--purple); margin-bottom: 4px; }
+.cd-contact-grid a { color: var(--red); text-decoration: none; font-weight: 700; margin-left: 6px; }
+.cd-contact-grid a:hover { text-decoration: underline; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 860px) {
+  .cd-hero { min-height: auto; }
+  .cd-hero-content { flex-direction: column; text-align: center; padding: 36px 20px 40px; gap: 24px; }
+  .cd-hero-left, .cd-hero-right { flex: 0 0 auto; width: 100%; }
+  .cd-hero-logo { max-width: 220px; margin: 0 auto; }
+  .cd-hero-right { align-items: center; text-align: center; }
+  .cd-hero-name { margin-bottom: 18px; }
+
+  .cd-hero-details { flex-direction: column; align-items: stretch; width: 100%; max-width: 340px; padding: 4px; }
+  .cd-hero-details .v2-comp-details-item { justify-content: flex-start; padding: 12px 16px; }
+  .cd-hero-details .v2-comp-details-divider { width: 100%; height: 1px; align-self: stretch; }
+
+  .cd-levels-grid,
+  .cd-levels-grid-2,
+  .cd-req-grid,
+  .cd-contact-grid { grid-template-columns: 1fr; }
+}

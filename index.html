@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Makebot STEAM Education Solutions</title>
+  <link rel="icon" type="image/webp" href="/logos/favicon.webp">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- Header (injected by Components.js) -->
+  <div id="header-placeholder"></div>
+
+  <!-- Cart drawer (shared across all pages) -->
+  <div id="cart-drawer-placeholder"></div>
+
+  <main id="main-content">
+
+    <!-- ========== HERO SLIDER ========== -->
+    <section class="hero-slider" id="heroSlider">
+      <div class="slide active" data-href="shop.html">
+        <img src="demo_images/banner1.webp" alt="Slide 1" class="slide-bg">
+      </div>
+      <div class="slide" data-href="shop.html">
+        <img src="demo_images/banner2.webp" alt="Slide 2" class="slide-bg">
+      </div>
+      <div class="slide" data-href="shop.html">
+        <img src="demo_images/banner3.webp" alt="Slide 3" class="slide-bg">
+      </div>
+      <div class="slide" data-href="shop.html">
+        <video class="slide-bg" autoplay muted loop playsinline>
+          <source src="demo_videos/BANNER.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+
+      <button class="slider-btn prev" id="prevSlide" aria-label="Previous slide">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      </button>
+
+      <button class="slider-btn next" id="nextSlide" aria-label="Next slide">
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </button>
+
+
+      <div class="slider-dots" id="sliderDots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </section>
+
+    <!-- ========== STATS ========== -->
+    <section class="stats-bar">
+      <div class="container">
+        <div class="stats-row">
+
+          <div class="stat-block">
+            <p class="stat-top">Kits used in</p>
+            <h3 class="stat-value"><span class="count" data-count="210">0</span>+</h3>
+            <p class="stat-bottom">Countries</p>
+          </div>
+
+          <div class="stat-block">
+            <p class="stat-top">Adopted by</p>
+            <h3 class="stat-value"><span class="count" data-count="1200">0</span>+</h3>
+            <p class="stat-bottom">Indian Schools</p>
+          </div>
+
+          <div class="stat-block">
+            <p class="stat-top">Designed for</p>
+            <h3 class="stat-value">CBSE</h3>
+            <p class="stat-bottom">Schooling</p>
+          </div>
+
+          <div class="stat-block">
+            <p class="stat-top">Aligned with</p>
+            <h3 class="stat-value">NEP 2020</h3>
+            <p class="stat-bottom">Guidelines</p>
+          </div>
+
+          <div class="stat-block">
+            <p class="stat-top">India’s host to</p>
+            <h3 class="stat-value">MakeX</h3>
+            <p class="stat-bottom">World Robotics Championship</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BRAND NARRATIVE ========== -->
+    <section class="narrative-section">
+      <div class="container">
+        <div class="narrative-grid">
+
+          <div class="narrative-media">
+            <!-- Replace this placeholder with:  -->
+            <div class="narrative-placeholder">
+              <img src="demo_images/home/hp-trial2.webp" alt="homepage-1" />
+            </div>
+          </div>
+
+          <div class="narrative-text">
+            <h2>Bringing world-standard Robotics, AI Coding education to <span>India.</span></h2>
+            <p>Students around the world are learning with advanced robotics kits and STEM-based curriculums. Makebot
+              brings the same globally benchmarked Robotics, AI and Coding education ecosystem to India. So Indian
+              children, too, can learn and compete on a world stage.</p>
+            <p class="narrative-closer">Starting today.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ROBOTICS, AI & CODING ========== -->
+    <section class="pillars-section">
+      <div class="container">
+        <h2 class="section-heading">Robotics, AI Coding Education for Kids, Schools Competitions</h2>
+        <p class="section-sub">Explore robotics kits, coding classes, AI education and STEM learning. From the classroom
+          and home, to the global stage.</p>
+
+        <div class="pillars-grid">
+
+          <!-- Schools -->
+          <article class="pillar-card">
+            <div class="pillar-carousel">
+              <!-- Replace each placeholder with: <img src="demo_images/your-image.webp" alt="..." /> -->
+              <div class="pillar-slide active"><img src="demo_images/home/section3-1.webp" alt="image" /></div>
+              <div class="pillar-slide"><img src="demo_images/home/section3-1-2.webp" alt="image" /></div>
+              <div class="pillar-slide"><img src="demo_images/home/section3-1-3.webp" alt="image" /></div>
+              <button class="pillar-arrow prev" aria-label="Previous"><i class="fa fa-chevron-left"></i></button>
+              <button class="pillar-arrow next" aria-label="Next"><i class="fa fa-chevron-right"></i></button>
+              <div class="pillar-dots"></div>
+            </div>
+            <div class="pillar-body">
+              <h3>Makebot for Schools</h3>
+              <p class="pillar-desc">Equip your school with NEP-aligned robotics labs, kits, and curriculum of
+                international standard.</p>
+              <ul class="pillar-list">
+                <li><i class="fa fa-check"></i> Complete Lab setups</li>
+                <li><i class="fa fa-check"></i> Kits</li>
+                <li><i class="fa fa-check"></i> Block-based Coding platform</li>
+                <li><i class="fa fa-check"></i> Curriculum</li>
+                <li><i class="fa fa-check"></i> Teacher Training</li>
+                <li><i class="fa fa-check"></i> Tools Accessories</li>
+                <li><i class="fa fa-check"></i> Repair Replacement Support</li>
+                <li><i class="fa fa-check"></i> MakeX Participation Opportunity</li>
+              </ul>
+              <div class="pillar-cta">
+                <p>Know more about Makebot School setup</p>
+                <a href="makebot-labs.html" class="btn-primary">School Solutions</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Home -->
+          <article class="pillar-card">
+            <div class="pillar-carousel">
+              <div class="pillar-slide active"><img src="demo_images/home/section3-2.webp" alt="image1" /></div>
+              <div class="pillar-slide"><img src="demo_images/home/section3-2-2.webp" alt="image2" /></div>
+              <div class="pillar-slide"><img src="demo_images/home/section3-2-3.webp" alt="image3" /></div>
+              <button class="pillar-arrow prev" aria-label="Previous"><i class="fa fa-chevron-left"></i></button>
+              <button class="pillar-arrow next" aria-label="Next"><i class="fa fa-chevron-right"></i></button>
+              <div class="pillar-dots"></div>
+            </div>
+            <div class="pillar-body">
+              <h3>Makebot for Home</h3>
+              <p class="pillar-desc">Prepare your child for the future with your own robotics kits, and coding lessons
+                at
+                home.</p>
+              <ul class="pillar-list">
+                <li><i class="fa fa-check"></i> Basic to Advanced Kits</li>
+                <li><i class="fa fa-check"></i> Courses</li>
+                <li><i class="fa fa-check"></i> Block-based Coding platform</li>
+                <li><i class="fa fa-check"></i> Tools Accessories</li>
+                <li><i class="fa fa-check"></i> MakeX Participation Opportunity</li>
+              </ul>
+              <div class="pillar-cta">
+                <p>Explore the Makebot kits courses range</p>
+                <a href="shop.html" class="btn-primary">Makebot Store</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- MakeX India -->
+          <article class="pillar-card">
+            <div class="pillar-carousel">
+              <div class="pillar-slide active"><img src="demo_images/home/section3-3.webp" alt="image" /></div>
+              <div class="pillar-slide"><img src="demo_images/home/section3-3-2.webp" alt="image" /></div>
+              <div class="pillar-slide"><img src="demo_images/home/section3-3-3.webp" alt="image" /></div>
+              <button class="pillar-arrow prev" aria-label="Previous"><i class="fa fa-chevron-left"></i></button>
+              <button class="pillar-arrow next" aria-label="Next"><i class="fa fa-chevron-right"></i></button>
+              <div class="pillar-dots"></div>
+            </div>
+            <div class="pillar-body">
+              <h3>MakeX India</h3>
+              <p class="pillar-desc">Participate to earn accolades certification at one of the World’s Top 3
+                Robotics Championships - MakeX</p>
+              <ul class="pillar-list">
+                <li><i class="fa fa-check"></i> Kits and training support</li>
+                <li><i class="fa fa-check"></i> National Competition Entry</li>
+                <li><i class="fa fa-check"></i> International Competition Entry</li>
+                <li><i class="fa fa-check"></i> Participation/Winner Certificate</li>
+                <li><i class="fa fa-check"></i> Acknowledgement on Makebot Platforms</li>
+              </ul>
+              <div class="pillar-cta">
+                <p>Know everything about Makebot’s MakeX competition</p>
+                <a href="makex.html" class="btn-primary">MakeX India</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WORLD OF MAKEBOT ========== -->
+    <section class="world-section">
+      <div class="container">
+        <h2 class="world-heading">The World of Makebot.</h2>
+        <p class="world-sub">Made for the world stage.</p>
+
+        <div class="world-grid">
+
+          <article class="world-card">
+            <i class="ti ti-robot world-icon"></i>
+            <h3>DIY Robot Kits</h3>
+            <p>Build globally benchmarked robots in schools and at home.</p>
+          </article>
+
+          <article class="world-card">
+            <i class="ti ti-code world-icon"></i>
+            <h3>Coding Platform</h3>
+            <p>Learn to operate robots using block-based coding, Python, Java, and more.</p>
+          </article>
+
+          <article class="world-card">
+            <i class="ti ti-book-2 world-icon"></i>
+            <h3>Curriculum Courses</h3>
+            <p>Acquire NEP-aligned Robotics, AI and Coding skills.</p>
+          </article>
+
+          <article class="world-card">
+            <i class="ti ti-building world-icon"></i>
+            <h3>Robotics School Lab</h3>
+            <p>Professionally train students in your school or training centre.</p>
+          </article>
+
+          <article class="world-card">
+            <i class="ti ti-trophy world-icon"></i>
+            <h3>Competition Kits</h3>
+            <p>Prepare to participate in international competitions.</p>
+          </article>
+
+          <article class="world-card">
+            <i class="ti ti-certificate world-icon"></i>
+            <h3>Trainer Certification Kit</h3>
+            <p>Become a certified Makebot Coach with our online training kit.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== RECOGNITION ========== -->
+    <section class="recognition-section">
+      <div class="container">
+        <h2 class="section-heading">Recognition by Professionals</h2>
+        <div class="logos-grid">
+          <div class="logo-item"><img src="logos/Engadget-logo.webp" alt="Engadget" class="brand-logo"></div>
+          <div class="logo-item"><img src="logos/Forbes_logo.webp" alt="Forbes" class="brand-logo"></div>
+          <div class="logo-item"><img src="logos/IGN_logo.webp" alt="IGN" class="brand-logo"></div>
+          <div class="logo-item"><img src="logos/mom_junction.webp" alt="Mom Junction" class="brand-logo"></div>
+          <div class="logo-item"><img src="logos/parents-logo.png" alt="Parents" class="brand-logo"></div>
+          <div class="logo-item"><img src="logos/PCMag_LOGO.png" alt="PCMag" class="brand-logo"></div>
+          <div class="logo-item"><img src="logos/Popular_Mechanics_logo.png" alt="Popular Mechanics" class="brand-logo">
+          </div>
+          <div class="logo-item"><img src="logos/tech_advisor.png" alt="Tech Advisor" class="brand-logo"></div>
+          <div class="logo-item"><img src="logos/tech_republic.png" alt="TechRepublic" class="brand-logo"></div>
+          <div class="logo-item"><img src="logos/TechCrunch_LOGO.png" alt="TechCrunch" class="brand-logo"></div>
+          <div class="logo-item"><img src="logos/reddot award.jpg" alt="Red Dot Award" class="brand-logo"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== REVIEWS ========== -->
+    <section class="reviews-section">
+      <div class="container">
+        <div class="reviews-header">
+          <div class="reviews-title-col">
+            <h2>Reviews from <em>real people</em></h2>
+            <div class="trustpilot-row">
+              <span class="stars">★★★★★</span>
+              <span class="trust-text">4.5 on Trustpilot · Based on 2,700 reviews</span>
+            </div>
+            <div class="big-quote">"What our customers are saying"</div>
+          </div>
+          <div class="reviews-cards-col">
+            <div class="reviews-track" id="reviewsTrack">
+              <div class="review-card">
+                <p>"This robotics and coding platform has given me inspriration for attempting harder and higher levels"
+                </p>
+                <div class="reviewer">
+                  <div class="reviewer-avatar purple">RG</div>
+                  <div>
+                    <strong>Arav Wagh</strong>
+                    <span>Billabong high international, grade 6 </span>
+                    <div class="r-stars">★★★★</div>
+                  </div>
+                </div>
+              </div>
+              <div class="review-card">
+                <p>"I am thankful to my school for organizing makebot boot camp. It was a wonderful experience. I only
+                  hopw im beginning to learn grate concept and have begin to grow "</p>
+                <div class="reviewer">
+                  <div class="reviewer-avatar pink">BP</div>
+                  <div>
+                    <strong>Ramasubramanian Iyar</strong>
+                    <span>PG Gorodia School, Grade 7</span>
+                    <div class="r-stars">★★★★★</div>
+                  </div>
+                </div>
+              </div>
+              <div class="review-card">
+                <p>"I recently join the quist for coding. our teachers teaches us so well. They explain us so good that
+                  i
+                  understand what to do and what is the code "</p>
+                <div class="reviewer">
+                  <div class="reviewer-avatar violet">JM</div>
+                  <div>
+                    <strong>Nail V Saliyan</strong>
+                    <span>Singhania School, Grade 5</span>
+                    <div class="r-stars">★★★★☆</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="review-nav">
+              <button class="rev-btn" id="revPrev"><i class="fa fa-chevron-left"></i></button>
+              <button class="rev-btn" id="revNext"><i class="fa fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (injected by Components.js from Footer.html) -->
+  <div id="footer-placeholder"></div>
+
+  <script src="Components.js"></script>
+  <!-- products-data.js MUST come before Cart.js and script.js -->
+  <script src="js/products-data.js"></script>
+  <script src="js/Cart.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/search.js"></script>
+
+</body>
+
+</html>

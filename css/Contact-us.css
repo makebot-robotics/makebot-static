@@ -1,0 +1,146 @@
+﻿/* =========================================
+   MAKEBOT â€“ CONTACT US PAGE
+   Reuses --purple / --pink / --gradient vars from style.css
+   ========================================= */
+
+:root {
+  --font-primary: 'Poppins', sans-serif;
+}
+
+.contact-hero {
+  background: var(--gradient-dark);
+  padding: 140px 0 60px;
+  color: #fff;
+}
+.contact-hero .breadcrumb { color: rgba(255,255,255,0.6); font-size: 13px; margin-bottom: 14px; }
+.contact-hero .breadcrumb span { color: #fff; }
+.contact-hero h1 { font-family: 'Poppins', sans-serif; font-size: 40px; font-weight: 900; }
+.contact-hero h1 em {
+  font-style: normal;
+  background: var(--gradient);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.contact-hero .hero-sub { margin-top: 10px; color: rgba(255,255,255,0.75); font-size: 15px; max-width: 520px; }
+
+.contact-main { padding: 60px 0 100px; background: var(--light-bg); }
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* â”€â”€ FORM CARD â”€â”€ */
+.contact-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+}
+.contact-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 10px;
+}
+.contact-card-title i { color: var(--purple); font-size: 17px; }
+
+.form-row { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 16px; }
+.form-row.two { grid-template-columns: 1fr 1fr; }
+
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label { font-size: 13px; font-weight: 600; color: var(--dark); }
+.form-field label .optional { font-weight: 400; color: var(--text-muted); }
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  transition: var(--transition);
+  background: #fff;
+  color: var(--text);
+}
+.form-field textarea { resize: vertical; min-height: 110px; }
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus { border-color: var(--purple); }
+.form-field input.invalid,
+.form-field select.invalid,
+.form-field textarea.invalid { border-color: #ef4444; }
+
+.field-error { font-size: 12px; color: #ef4444; min-height: 14px; }
+
+#contactSubmit {
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+#contactSubmit:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.contact-success {
+  text-align: center;
+  padding: 40px 20px;
+}
+.contact-success i { font-size: 48px; color: var(--purple); margin-bottom: 14px; }
+.contact-success h3 { font-family: 'Poppins', sans-serif; font-size: 22px; margin-bottom: 8px; }
+.contact-success p { color: var(--text-muted); font-size: 14px; }
+
+/* â”€â”€ INFO PANEL â”€â”€ */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.info-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.info-card i {
+  width: 38px; height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--gradient-subtle);
+  color: var(--purple);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+}
+.info-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.info-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+.info-card a { color: var(--purple); font-weight: 600; }
+
+.info-social {
+  display: flex; gap: 10px; margin-top: 4px;
+}
+.info-social a {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--gradient-subtle);
+  color: var(--purple);
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+}
+.info-social a:hover { background: var(--gradient); color: #fff; }
+
+@media (max-width: 860px) {
+  .contact-layout { grid-template-columns: 1fr; }
+  .form-row.two { grid-template-columns: 1fr; }
+}

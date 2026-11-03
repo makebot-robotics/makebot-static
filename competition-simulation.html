@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Makebot Online Simulation 2026 — Makebot</title>
+  <link rel="icon" type="image/png" href="/logos/favicon.png">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/event-page-v2.css" />
+  <link rel="stylesheet" href="css/competition-detail.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <div class="v2-page cd-page">
+
+    <!-- ===================== SECTION 1: HERO ===================== -->
+    <div class="v2-hero cd-hero">
+      <video class="v2-hero-video-bg" autoplay muted loop playsinline poster="">
+        <source src="demo_videos/makex-bg-video.mp4" type="video/mp4" />
+      </video>
+      <div class="v2-hero-overlay"></div>
+
+      <div class="cd-hero-content">
+        <div class="cd-hero-left">
+          <img src="makex-content/logo1.webp" class="cd-hero-logo" alt="Makebot MakeX India 2026" />
+        </div>
+
+        <div class="cd-hero-right">
+          <p class="cd-hero-eyebrow">Competition</p>
+          <p class="cd-hero-name">Makebot Online Simulation</p>
+
+          <div class="v2-comp-details cd-hero-details">
+            <div class="v2-comp-details-item">
+              <i class="ti ti-calendar-event" aria-hidden="true"></i>
+              <div>
+                <span class="v2-comp-details-label">Date</span>
+                <span class="v2-comp-details-value">14th-15th Nov, 2026</span>
+              </div>
+            </div>
+            <div class="v2-comp-details-divider"></div>
+            <div class="v2-comp-details-item">
+              <i class="ti ti-clock" aria-hidden="true"></i>
+              <div>
+                <span class="v2-comp-details-label">Time</span>
+                <span class="v2-comp-details-value">10
+                  AM to 5 PM</span>
+              </div>
+            </div>
+            <div class="v2-comp-details-divider"></div>
+            <div class="v2-comp-details-item">
+              <i class="ti ti-map-pin" aria-hidden="true"></i>
+              <div>
+                <span class="v2-comp-details-label">Venue</span>
+                <span class="v2-comp-details-value"><a href="https://maps.app.goo.gl/ArB6z6jbBqWFpYxD6" target="_blank"
+                    class="venue-link">
+                    Golden Bee School, Bangalore
+                  </a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== SECTION 2: AGE GROUPS ===================== -->
+    <div class="cd-levels">
+      <div class="sec-divider">
+        <div class="sec-divider-line"></div>
+        <span class="sec-divider-label">Age Groups</span>
+        <div class="sec-divider-line r"></div>
+      </div>
+
+      <div class="cd-levels-grid cd-levels-grid-2">
+        <div class="cd-level-card">
+          <div class="cd-level-stage cd-stage-1">Group I</div>
+          <p class="cd-level-name">Simulation Group I</p>
+          <p class="cd-level-age">6-10 Years</p>
+          <div class="cd-level-bar"><span style="width:50%"></span></div>
+        </div>
+
+        <div class="cd-level-card">
+          <div class="cd-level-stage cd-stage-3">Group II</div>
+          <p class="cd-level-name">Simulation Group II</p>
+          <p class="cd-level-age">11-15 Years</p>
+          <div class="cd-level-bar"><span style="width:100%"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== SECTION 3: COMPETITION REQUIREMENTS ===================== -->
+    <div class="cd-requirements">
+      <div class="sec-divider">
+        <div class="sec-divider-line"></div>
+        <span class="sec-divider-label">Competition Requirements</span>
+        <div class="sec-divider-line r"></div>
+      </div>
+
+      <div class="cd-req-grid">
+
+        <div class="cd-req-card">
+          <p class="cd-req-title"><i class="ti ti-school" aria-hidden="true"></i> For Schools</p>
+          <ul class="cd-req-list">
+            <li>Access to a Computer Lab</li>
+            <li>10MBPS+ stable Internet Connection</li>
+            <li>Students willing to win</li>
+          </ul>
+        </div>
+
+        <div class="cd-req-card">
+          <p class="cd-req-title"><i class="ti ti-user" aria-hidden="true"></i> For Individuals</p>
+          <ul class="cd-req-list">
+            <li>Access to a Computer</li>
+            <li>10MBPS+ stable Internet Connection</li>
+            <li>Individuals willing to win</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===================== SECTION 4: REGISTRATION (same form as main page) ===================== -->
+    <div class="reg-page cd-registration" id="register">
+      <div class="sec-divider">
+        <div class="sec-divider-line"></div>
+        <span class="sec-divider-label">Registration</span>
+        <div class="sec-divider-line r"></div>
+      </div>
+
+      <div class="reg-split">
+
+        <div class="reg-split-img">
+          <picture>
+            <!-- Mobile image -->
+            <source media="(max-width: 768px)" srcset="makex-content/form/mobile/ArenaM.webp" />
+
+            <!-- Desktop image -->
+            <img src="makex-content/form/Arena.webp" alt="Student registering for competition" />
+          </picture>
+        </div>
+
+        <div class="reg-split-form">
+          <div class="reg-header reg-header-left">
+            <p class="reg-eyebrow">MAKEX SIMULATION 2026</p>
+            <p class="reg-title">Competition Registration</p>
+            <p class="reg-sub">Fill in your details below to register for the MakeX Robotics Competition</p>
+          </div>
+
+          <form class="reg-form" id="regForm">
+            <div class="reg-field">
+              <label for="studentName">Student Name</label>
+              <input type="text" id="studentName" name="studentName" placeholder="Enter student's full name" required />
+            </div>
+            <div class="reg-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="reg-field">
+              <label for="mobile">Mobile Number</label>
+              <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" required />
+            </div>
+            <div class="reg-field">
+              <label for="address">Address</label>
+              <input type="text" id="address" name="address" placeholder="Enter your address" required />
+            </div>
+
+            <div class="reg-row">
+              <div class="reg-field">
+                <label for="grade">Select Your Grade</label>
+                <select id="grade" name="grade" required>
+                  <option value="" disabled selected>Select grade</option>
+                  <option value="1">Grade 1</option>
+                  <option value="2">Grade 2</option>
+                  <option value="3">Grade 3</option>
+                  <option value="4">Grade 4</option>
+                  <option value="5">Grade 5</option>
+                  <option value="6">Grade 6</option>
+                  <option value="7">Grade 7</option>
+                  <option value="8">Grade 8</option>
+                  <option value="9">Grade 9</option>
+                  <option value="10">Grade 10</option>
+                </select>
+              </div>
+              <div class="reg-field">
+                <label for="country">Select Your Country</label>
+                <select id="country" name="country" required>
+                  <option value="India" selected>India</option>
+                  <option value="United States">United States</option>
+                  <option value="United Arab Emirates">United Arab Emirates</option>
+                  <option value="China">China</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="reg-field">
+              <label for="competition">Select Competition</label>
+              <select id="competition" name="competition" required>
+                <option value="" disabled selected>Select your competition level</option>
+                <optgroup label="Makebot Online Simulation">
+                  <option value="Simulation - Group I">Simulation Group I (6-10 yrs)</option>
+                  <option value="Simulation - Group II">Simulation Group II (11-15 yrs)</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="reg-row">
+              <div class="reg-field">
+                <label for="schoolName">School Name</label>
+                <input type="text" id="schoolName" name="schoolName" placeholder="Enter your school name" required />
+              </div>
+              <div class="reg-field">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="Enter your city" required />
+              </div>
+            </div>
+
+            <button type="submit" class="reg-submit">Register</button>
+          </form>
+
+          <p class="reg-school-link">
+            To register students of your school/classes,
+            <a href="Contact-us.html">click here</a>.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ===================== SECTION 5: ACCORDION — RULES & STRUCTURE ===================== -->
+    <div class="cd-rules">
+      <div class="sec-divider">
+        <div class="sec-divider-line"></div>
+        <span class="sec-divider-label">Rules & Structure</span>
+        <div class="sec-divider-line r"></div>
+      </div>
+
+      <div class="cd-accordion" id="cdAccordion">
+
+        <!-- 1 -->
+        <div class="cd-acc-item">
+          <button class="cd-acc-header">
+            <span class="cd-acc-num">1</span>
+            <span class="cd-acc-title">Competition Structure</span>
+            <i class="ti ti-chevron-down cd-acc-icon" aria-hidden="true"></i>
+          </button>
+          <div class="cd-acc-panel">
+            <div class="cd-acc-panel-inner">
+              <p>MakeX Simulation will be conducted in two stages: an online pre-qualification stage and a venue
+                competition stage.</p>
+              <p>Participating students will first receive training and will then be evaluated through an online MCQ
+                test and two simulation tasks.</p>
+              <p>Based on their overall performance, participants will be ranked and the top 50% of the total
+                participation will qualify for the venue stage.</p>
+
+              <p class="cd-acc-subtitle">Competition Format at a Glance</p>
+              <table class="cd-table">
+                <thead>
+                  <tr>
+                    <th>Stage</th>
+                    <th>Format</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Training Session</td>
+                    <td>Training provided to all participating students</td>
+                  </tr>
+                  <tr>
+                    <td>Online MCQ Test</td>
+                    <td>50-mark test based on the training session</td>
+                  </tr>
+                  <tr>
+                    <td>Simulation Tasks</td>
+                    <td>2 simulation tasks submitted by participants</td>
+                  </tr>
+                  <tr>
+                    <td>Pre-Qualification Evaluation</td>
+                    <td>Participants evaluated and ranked based on performance</td>
+                  </tr>
+                  <tr>
+                    <td>Venue Eligibility</td>
+                    <td>Top 50% of total participation qualify for the venue stage</td>
+                  </tr>
+                  <tr>
+                    <td>Venue Competition</td>
+                    <td>Simulation tasks judged on working/performance and completion time</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="cd-acc-item">
+          <button class="cd-acc-header">
+            <span class="cd-acc-num">2</span>
+            <span class="cd-acc-title">Training Session</span>
+            <i class="ti ti-chevron-down cd-acc-icon" aria-hidden="true"></i>
+          </button>
+          <div class="cd-acc-panel">
+            <div class="cd-acc-panel-inner">
+              <p>A training session will be conducted for all participating students before the evaluation stage. The
+                training session will provide the knowledge and skills required for the online assessment and simulation
+                tasks.</p>
+              <ul class="cd-acc-list">
+                <li>All registered participants will be eligible to attend the designated training session.</li>
+                <li>The online MCQ assessment will be based on the content covered during the training session.</li>
+                <li>The simulation tasks will assess the participant's ability to apply the concepts and skills
+                  developed during training.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="cd-acc-item">
+          <button class="cd-acc-header">
+            <span class="cd-acc-num">3</span>
+            <span class="cd-acc-title">Online MCQ Assessment</span>
+            <i class="ti ti-chevron-down cd-acc-icon" aria-hidden="true"></i>
+          </button>
+          <div class="cd-acc-panel">
+            <div class="cd-acc-panel-inner">
+              <p>After completion of the training session, an online multiple-choice question (MCQ) test will be
+                conducted.</p>
+              <ul class="cd-acc-list">
+                <li>The MCQ test will carry a maximum of 50 marks.</li>
+                <li>Questions will be based on the content and concepts covered during the training session.</li>
+                <li>The score obtained in the MCQ test will form part of the participant's pre-qualification evaluation.
+                </li>
+                <li>The test will be conducted online according to the schedule communicated by the competition
+                  organizers.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="cd-acc-item">
+          <button class="cd-acc-header">
+            <span class="cd-acc-num">4</span>
+            <span class="cd-acc-title">Online Simulation Tasks</span>
+            <i class="ti ti-chevron-down cd-acc-icon" aria-hidden="true"></i>
+          </button>
+          <div class="cd-acc-panel">
+            <div class="cd-acc-panel-inner">
+              <p>Participants will be assigned two (2) simulation tasks after the training session. Participants must
+                complete and submit both tasks within the specified submission period.</p>
+              <ul class="cd-acc-list">
+                <li>Each participant will receive two simulation tasks.</li>
+                <li>Participants must complete the assigned tasks according to the provided requirements.</li>
+                <li>Both completed simulation tasks must be submitted through the designated submission process.</li>
+                <li>The submitted work will be evaluated based on the competition's defined performance criteria.</li>
+                <li>Submission deadlines and technical requirements will be communicated by the competition organizers.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="cd-acc-item">
+          <button class="cd-acc-header">
+            <span class="cd-acc-num">5</span>
+            <span class="cd-acc-title">Pre-Qualification Evaluation & Ranking</span>
+            <i class="ti ti-chevron-down cd-acc-icon" aria-hidden="true"></i>
+          </button>
+          <div class="cd-acc-panel">
+            <div class="cd-acc-panel-inner">
+              <p>Participants will be evaluated using their performance in the online MCQ assessment and the two
+                submitted simulation tasks. The resulting evaluation will be used to establish the pre-qualification
+                ranking.</p>
+              <p>The detailed marks distribution and evaluation criteria for the simulation tasks will be defined and
+                communicated by the competition organizers as part of the official assessment instructions.</p>
+
+              <table class="cd-table">
+                <thead>
+                  <tr>
+                    <th>Evaluation Component</th>
+                    <th>Assessment</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Online MCQ Test</td>
+                    <td>Maximum 50 marks</td>
+                  </tr>
+                  <tr>
+                    <td>Simulation Task 1</td>
+                    <td>Evaluated based on task performance</td>
+                  </tr>
+                  <tr>
+                    <td>Simulation Task 2</td>
+                    <td>Evaluated based on task performance</td>
+                  </tr>
+                  <tr>
+                    <td>Overall Pre-Qualification</td>
+                    <td>Combined evaluation of all three components</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="cd-acc-item">
+          <button class="cd-acc-header">
+            <span class="cd-acc-num">6</span>
+            <span class="cd-acc-title">Venue Qualification</span>
+            <i class="ti ti-chevron-down cd-acc-icon" aria-hidden="true"></i>
+          </button>
+          <div class="cd-acc-panel">
+            <div class="cd-acc-panel-inner">
+              <p>After the pre-qualification evaluation is completed, all participants will be ranked according to their
+                overall performance. The top 50% of the total participation will be eligible to participate in the MakeX
+                Simulation competition at the venue.</p>
+              <ul class="cd-acc-list">
+                <li>The qualification cutoff will be determined after the final number of participating students is
+                  confirmed.</li>
+                <li>Participants ranked within the top 50% will receive eligibility to compete at the venue.</li>
+                <li>The remaining participants will not proceed to the venue competition stage.</li>
+                <li>The final qualification list will be announced by the competition organizers.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="cd-acc-item">
+          <button class="cd-acc-header">
+            <span class="cd-acc-num">7</span>
+            <span class="cd-acc-title">Venue Competition</span>
+            <i class="ti ti-chevron-down cd-acc-icon" aria-hidden="true"></i>
+          </button>
+          <div class="cd-acc-panel">
+            <div class="cd-acc-panel-inner">
+              <p>Qualified participants will compete at the venue by completing simulation tasks assigned during the
+                competition. Participants will be judged on both the working/performance of their simulation and the
+                time taken to complete the assigned task.</p>
+              <ul class="cd-acc-list">
+                <li>Simulation tasks will be provided to qualified participants on the competition day.</li>
+                <li>Participants will be required to complete the assigned task according to the stated requirements.
+                </li>
+                <li>The simulation must demonstrate the required working or functionality to receive the applicable
+                  score.</li>
+                <li>Completion time will be recorded by the designated competition officials.</li>
+                <li>Any applicable penalties, deductions, or task-specific conditions will be applied according to the
+                  official competition rules.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="cd-acc-item">
+          <button class="cd-acc-header">
+            <span class="cd-acc-num">8</span>
+            <span class="cd-acc-title">Venue Evaluation</span>
+            <i class="ti ti-chevron-down cd-acc-icon" aria-hidden="true"></i>
+          </button>
+          <div class="cd-acc-panel">
+            <div class="cd-acc-panel-inner">
+              <p>Venue performance will be evaluated using the official MakeX Simulation scoring criteria. The
+                evaluation will consider successful working of the simulation and completion time.</p>
+
+              <table class="cd-table">
+                <thead>
+                  <tr>
+                    <th>Evaluation Factor</th>
+                    <th>Basis of Evaluation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Working / Functionality</td>
+                    <td>Successful completion and correct operation of the assigned simulation task</td>
+                  </tr>
+                  <tr>
+                    <td>Completion Time</td>
+                    <td>Time taken to successfully complete the assigned task</td>
+                  </tr>
+                  <tr>
+                    <td>Penalties / Deductions</td>
+                    <td>Any applicable penalties defined in the competition rules</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="cd-acc-item">
+          <button class="cd-acc-header">
+            <span class="cd-acc-num">9</span>
+            <span class="cd-acc-title">Final Ranking</span>
+            <i class="ti ti-chevron-down cd-acc-icon" aria-hidden="true"></i>
+          </button>
+          <div class="cd-acc-panel">
+            <div class="cd-acc-panel-inner">
+              <p>Participants competing at the venue will be ranked based on their performance in the venue competition.
+                The final ranking will determine the winners and runner-ups of the MakeX Simulation competition.</p>
+              <ul class="cd-acc-list">
+                <li>Only participants who qualify through the top-50% pre-qualification stage will be included in the
+                  venue competition.</li>
+                <li>Venue performance will determine the final competition standings.</li>
+                <li>The competition organizers will verify and finalize all scores and rankings before announcing the
+                  results.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="cd-acc-item">
+          <button class="cd-acc-header">
+            <span class="cd-acc-num">10</span>
+            <span class="cd-acc-title">Competition Flow</span>
+            <i class="ti ti-chevron-down cd-acc-icon" aria-hidden="true"></i>
+          </button>
+          <div class="cd-acc-panel">
+            <div class="cd-acc-panel-inner">
+              <table class="cd-table">
+                <thead>
+                  <tr>
+                    <th>Step</th>
+                    <th>Process</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Training session conducted for participating students.</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Online 50-mark MCQ test conducted based on the training session.</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Two simulation tasks assigned to each participant.</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Participants complete and submit both simulation tasks.</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>MCQ and simulation-task performance are evaluated.</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>All participants are ranked based on the pre-qualification evaluation.</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>Top 50% of total participation qualify for the venue stage.</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>Qualified participants complete simulation tasks at the venue.</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>Venue performance is judged based on working/performance and completion time.</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>Final ranking determines winners and runner-ups.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="cd-acc-item">
+          <button class="cd-acc-header">
+            <span class="cd-acc-num">11</span>
+            <span class="cd-acc-title">General Competition Principles</span>
+            <i class="ti ti-chevron-down cd-acc-icon" aria-hidden="true"></i>
+          </button>
+          <div class="cd-acc-panel">
+            <div class="cd-acc-panel-inner">
+              <ul class="cd-acc-list">
+                <li>All participants will be evaluated using the same assessment criteria applicable to their respective
+                  stage.</li>
+                <li>MCQ results and simulation-task evaluations will be recorded and verified by designated competition
+                  officials.</li>
+                <li>Participants are responsible for completing and submitting both online simulation tasks within the
+                  specified deadline.</li>
+                <li>Only the top 50% of total participation, based on the pre-qualification ranking, will proceed to the
+                  venue stage.</li>
+                <li>Venue participants will be evaluated on successful working/performance and completion time of the
+                  assigned simulation tasks.</li>
+                <li>The competition organizers reserve the right to resolve exceptional technical or procedural
+                  situations in accordance with the official competition rules.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /.v2-page -->
+
+  <div id="footer-placeholder"></div>
+
+  <script src="Components.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/registration.js"></script>
+  <script src="js/competition-detail.js"></script>
+
+</body>
+
+</html>

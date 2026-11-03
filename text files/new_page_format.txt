@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – Makebot</title>
+
+  <!-- same CSS & fonts as index -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- ======= YOUR PAGE CONTENT HERE ======= -->
+  <main>
+
+  </main>
+  <!-- ======= YOUR PAGE CONTENT HERE ======= -->
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Components.js ALWAYS first, page script ALWAYS second -->
+  <script src="../js/Components.js"></script>
+  <script src="../js/about.js"></script>  <!-- this page's own script -->
+
+</body>
+</html>
+
+
+/----------------NEW JS FILE CODE SHOULD BE IN THIS addEventListener--------------/
+
+
+document.addEventListener('componentsReady', () => {
+  // this page's logic goes here
+});

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin - Makebot</title>
+  <style>
+    body { font-family: sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; font-size: 14px; }
+    th { background: #f0f0f0; }
+    input[type="number"] { width: 80px; }
+    input[type="password"], input[type="text"] { padding: 6px; }
+    button { padding: 6px 14px; cursor: pointer; }
+    #loginBox { max-width: 300px; margin-top: 60px; }
+    #app { display: none; }
+    h2 { margin-top: 40px; }
+    .msg { font-size: 13px; margin-top: 6px; }
+    .msg.error { color: #c00; }
+    .msg.ok { color: #080; }
+  </style>
+</head>
+<body>
+
+  <div id="loginBox">
+    <h1>Admin Login</h1>
+    <input type="password" id="passwordInput" placeholder="Admin password" />
+    <button id="loginBtn">Login</button>
+    <div class="msg error" id="loginMsg"></div>
+  </div>
+
+  <div id="app">
+    <h1>Makebot Admin</h1>
+
+    <h2>Products</h2>
+    <table id="productsTable">
+      <thead>
+        <tr>
+          <th>ID</th><th>Name</th><th>Price</th><th>Old Price</th><th>Stock</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="productsBody"></tbody>
+    </table>
+
+    <h2>Orders</h2>
+    <table id="ordersTable">
+      <thead>
+        <tr>
+          <th>Order Code</th><th>Customer</th><th>Total</th><th>Status</th><th>Placed At</th>
+        </tr>
+      </thead>
+      <tbody id="ordersBody"></tbody>
+    </table>
+
+    <h2>Failed Payments (need manual refund)</h2>
+    <table id="failedTable">
+      <thead>
+        <tr>
+          <th>Payment ID</th><th>Customer</th><th>Reason</th><th>Total</th><th>When</th>
+        </tr>
+      </thead>
+      <tbody id="failedBody"></tbody>
+    </table>
+  </div>
+
+  <script src="js/Admin.js"></script>
+</body>
+</html>

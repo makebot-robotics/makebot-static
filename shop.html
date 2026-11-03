@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MakeBot – Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/shop.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+
+</head>
+<body>
+
+  <!-- NAVBAR (loaded from Header.html via Components.js) -->
+  <div id="header-placeholder"></div>
+
+  <!-- CART DRAWER (loaded from CartDrawer.html via Components.js) -->
+  <div id="cart-drawer-placeholder"></div>
+
+  <!-- SHOP HERO -->
+  <section class="shop-hero">
+    <div class="container">
+      <p class="breadcrumb">Home<span>Shop</span></p>
+      <h1>Explore Our <em>STEAM Products</em></h1>
+      <p class="hero-sub">Kits that spark curiosity and build real skills.</p>
+    </div>
+  </section>
+
+  <!-- TOOLBAR -->
+  <div class="toolbar-wrap">
+    <div class="container toolbar">
+      <button class="filter-btn" id="filterToggle">
+        <i class="fa fa-sliders-h"></i> Filter
+      </button>
+      <span class="results-count" id="resultsCount"></span>
+      <select class="sort-select" id="sortSelect">
+        <option value="best-selling">Best Selling</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="newest">Newest</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- FILTER PANEL -->
+  <div class="filter-panel" id="filterPanel">
+    <div class="container filter-inner">
+      <div class="filter-group">
+        <h5>Category</h5>
+        <div class="filter-options">
+          <label><input type="checkbox" value="robotics" data-filter="category"> Robotics</label>
+          <label><input type="checkbox" value="electronics" data-filter="category"> Electronics</label>
+          <label><input type="checkbox" value="coding" data-filter="category"> Coding</label>
+          <label><input type="checkbox" value="science" data-filter="category"> Science</label>
+          <label><input type="checkbox" value="art" data-filter="category"> Art</label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <h5>Age Group</h5>
+        <div class="filter-options">
+          <label><input type="checkbox" value="5-8" data-filter="age"> Ages 5–8</label>
+          <label><input type="checkbox" value="8-12" data-filter="age"> Ages 8–12</label>
+          <label><input type="checkbox" value="10-14" data-filter="age"> Ages 10–14</label>
+          <label><input type="checkbox" value="12-16" data-filter="age"> Ages 12–16</label>
+          <label><input type="checkbox" value="14+" data-filter="age"> Ages 14+</label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <h5>Price</h5>
+        <div class="filter-options">
+          <label><input type="checkbox" value="0-500" data-filter="price"> Under ₹500</label>
+          <label><input type="checkbox" value="500-1000" data-filter="price"> ₹500–₹1000</label>
+          <label><input type="checkbox" value="1000-2000" data-filter="price"> ₹1000–₹2000</label>
+          <label><input type="checkbox" value="2000-9999" data-filter="price"> Above ₹2000</label>
+        </div>
+      </div>
+      <div class="filter-group">
+        <h5>Difficulty</h5>
+        <div class="filter-options">
+          <label><input type="checkbox" value="beginner" data-filter="difficulty"> Beginner</label>
+          <label><input type="checkbox" value="intermediate" data-filter="difficulty"> Intermediate</label>
+          <label><input type="checkbox" value="advanced" data-filter="difficulty"> Advanced</label>
+        </div>
+      </div>
+      <button class="clear-filters" id="clearFilters">Clear All</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT GRID -->
+  <main class="shop-main">
+    <div class="container">
+      <div class="product-grid" id="productGrid"></div>
+      <div class="no-results" id="noResults" style="display:none">
+        <i class="fa fa-search"></i>
+        <p>No products match your filters.</p>
+        <button id="noResultsClear">Clear Filters</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER (loaded from Footer.html via Components.js) -->
+  <div id="footer-placeholder"></div>
+
+  <!-- TOAST -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Components.js loads Header/Footer/CartDrawer, THEN fires 'componentsReady' -->
+  <script src="Components.js"></script>
+  <!-- products-data.js MUST come before Cart.js and shop.js -->
+  <script src="js/products-data.js"></script>
+  <script src="js/Cart.js"></script>
+  <script src="js/shop.js"></script>
+  <script src="js/search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product - MakeBot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/product_details.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+
+</head>
+<body>
+
+  <!-- NAVBAR (loaded from Header.html via Components.js) -->
+  <div id="header-placeholder"></div>
+
+  <!-- CART DRAWER (loaded from CartDrawer.html via Components.js) -->
+  <div id="cart-drawer-placeholder"></div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <a href="index.html">Home</a> 
+      <a href="shop.html">Shop</a> 
+      <span id="breadcrumbName">Product</span>
+    </div>
+  </div>
+
+  <!-- PRODUCT DETAIL -->
+  <main class="product-main">
+    <div class="container">
+      <div class="product-layout" id="productLayout"></div>
+    </div>
+  </main>
+
+  <!-- RELATED PRODUCTS -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Products</h2>
+      <div class="related-grid" id="relatedGrid"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER (loaded from Footer.html via Components.js) -->
+  <div id="footer-placeholder"></div>
+
+  <!-- TOAST -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Components.js loads Header/Footer/CartDrawer, THEN fires 'componentsReady' -->
+  <script src="Components.js"></script>
+  <!-- products-data.js MUST come before Cart.js and product_details.js -->
+  <script src="js/products-data.js"></script>
+  <script src="js/Cart.js"></script>
+  <script src="js/product_details.js"></script>
+  <script src="js/search.js"></script>
+  
+</body>
+</html>

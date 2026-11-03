@@ -1,0 +1,135 @@
+/* ============================================================
+   mBot2 RENTAL & TRAINING PAGE — extends competition-detail theme
+   ============================================================ */
+
+/* hero — no date/time/venue row here, just title + sub text */
+.rt-hero { min-height: 460px; }
+
+.rt-hero-content .cd-hero-right { max-width: 640px; }
+
+.rt-hero-sub {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+/* section spacing reuses .cd-requirements, add intro line */
+.rt-section { padding-top: 4px; }
+
+.rt-section-intro {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+
+/* card tweaks */
+.rt-card { position: relative; display: flex; flex-direction: column; }
+
+.rt-option-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--pink);
+  background: var(--bg-card-soft);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.rt-card-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.rt-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card-soft);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
+
+.rt-price-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--purple-mid);
+}
+
+.rt-price-value {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--purple);
+}
+
+.rt-centres {
+  margin: 6px 0 20px;
+}
+
+.rt-centres-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--purple-mid);
+  margin-bottom: 8px;
+}
+
+.rt-centres-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.rt-centres-list li {
+  font-size: 13px;
+  color: var(--text-body);
+  padding-left: 16px;
+  position: relative;
+}
+.rt-centres-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--pink);
+}
+
+/* buttons — push to bottom of card, full width */
+.rt-btn-full {
+  margin-top: auto;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 20px;
+}
+
+.rt-btn-row {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+}
+.rt-btn-half {
+  flex: 1;
+  justify-content: center;
+  padding: 12px 16px;
+}
+
+@media (max-width: 860px) {
+  .rt-hero-content .cd-hero-right { max-width: 100%; }
+}

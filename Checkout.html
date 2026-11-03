@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout – MakeBot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/Checkout.css"/>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  
+</head>
+<body>
+
+  <!-- NAVBAR (loaded from Header.html via Components.js) -->
+  <div id="header-placeholder"></div>
+
+  <!-- CART DRAWER (loaded from CartDrawer.html via Components.js) -->
+  <div id="cart-drawer-placeholder"></div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <a href="index.html">Home</a> &rsaquo;
+      <a href="shop.html">Shop</a> &rsaquo;
+      <span>Checkout</span>
+    </div>
+  </div>
+
+  <!-- CHECKOUT -->
+  <main class="checkout-main">
+    <div class="container">
+
+      <h1 class="checkout-title">Checkout</h1>
+
+      <div class="checkout-layout" id="checkoutLayout">
+
+        <!-- LEFT: DETAILS FORM -->
+        <section class="checkout-form-col">
+
+          <div class="checkout-card">
+            <h2 class="checkout-card-title"><i class="fa fa-truck"></i> Shipping Details</h2>
+            <form id="shippingForm" novalidate>
+              <div class="form-row two">
+                <div class="form-field">
+                  <label for="fullName">Full Name</label>
+                  <input type="text" id="fullName" name="fullName" placeholder="Your full name" required/>
+                  <span class="field-error" id="err-fullName"></span>
+                </div>
+                <div class="form-field">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required/>
+                  <span class="field-error" id="err-phone"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="you@example.com" required/>
+                  <span class="field-error" id="err-email"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="address">Address</label>
+                  <input type="text" id="address" name="address" placeholder="House no., street, area" required/>
+                  <span class="field-error" id="err-address"></span>
+                </div>
+              </div>
+
+              <div class="form-row three">
+                <div class="form-field">
+                  <label for="city">City</label>
+                  <input type="text" id="city" name="city" placeholder="City" required/>
+                  <span class="field-error" id="err-city"></span>
+                </div>
+                <div class="form-field">
+                  <label for="state">State</label>
+                  <input type="text" id="state" name="state" placeholder="State" required/>
+                  <span class="field-error" id="err-state"></span>
+                </div>
+                <div class="form-field">
+                  <label for="pincode">Pincode</label>
+                  <input type="text" id="pincode" name="pincode" placeholder="6-digit pincode" required/>
+                  <span class="field-error" id="err-pincode"></span>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="checkout-card">
+            <h2 class="checkout-card-title"><i class="fa fa-credit-card"></i> Payment Method</h2>
+            <div class="payment-options">
+              <label class="payment-option active">
+                <input type="radio" name="payment" value="cod" checked/>
+                <i class="fa fa-money-bill-wave"></i>
+                <span>Cash on Delivery</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="card"/>
+                <i class="fa fa-credit-card"></i>
+                <span>Credit / Debit Card</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="upi"/>
+                <i class="fa fa-mobile-alt"></i>
+                <span>UPI</span>
+              </label>
+            </div>
+            <p class="payment-note">This is a demo checkout — no real payment will be processed.</p>
+          </div>
+
+        </section>
+
+        <!-- RIGHT: ORDER SUMMARY -->
+        <aside class="checkout-summary-col">
+          <div class="summary-card">
+            <h2 class="checkout-card-title"><i class="fa fa-receipt"></i> Order Summary</h2>
+
+            <div class="summary-items" id="summaryItems"></div>
+
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <strong id="sumSubtotal">₹0</strong>
+            </div>
+            <div class="summary-row">
+              <span>Delivery</span>
+              <strong id="sumDelivery">₹0</strong>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-row total-row">
+              <span>Total</span>
+              <strong id="sumTotal">₹0</strong>
+            </div>
+
+            <button class="btn-place-order" id="btnPlaceOrder">
+              <i class="fa fa-lock"></i> Place Order
+            </button>
+            <a href="shop.html" class="back-to-shop"><i class="fa fa-arrow-left"></i> Continue Shopping</a>
+          </div>
+        </aside>
+
+      </div>
+
+      <!-- EMPTY CART STATE -->
+      <div class="checkout-empty" id="checkoutEmpty" style="display:none">
+        <i class="fa fa-shopping-bag"></i>
+        <h3>Your cart is empty</h3>
+        <p>Add a few products before checking out.</p>
+        <a href="shop.html" class="btn-primary">Browse the Shop</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ORDER SUCCESS MODAL -->
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-modal">
+      <div class="success-icon"><i class="fa fa-check"></i></div>
+      <h2>Order Placed!</h2>
+      <p>Thank you<span id="successName"></span> — your order has been received. A confirmation has been "sent" to <strong id="successEmail"></strong>.</p>
+      <p class="success-order-id">Order ID: <strong id="successOrderId"></strong></p>
+      <a href="index.html" class="btn-primary">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- FOOTER (loaded from Footer.html via Components.js) -->
+  <div id="footer-placeholder"></div>
+
+  <!-- TOAST -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Components.js loads Header/Footer/CartDrawer, THEN fires 'componentsReady' -->
+  <script src="Components.js"></script>
+  <!-- products-data.js MUST come before Cart.js and Checkout.js -->
+  <script src="js/products-data.js"></script>
+  <script src="js/Cart.js"></script>
+  <script src="js/Checkout.js"></script>
+</body>
+</html>

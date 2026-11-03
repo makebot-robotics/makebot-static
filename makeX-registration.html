@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MakeX Registration — Makebot</title>
+  <link rel="stylesheet" href="css/makeX-registration.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<div class="reg-page">
+  <div class="reg-header">
+    <p class="reg-eyebrow">MAKEX 2026</p>
+    <p class="reg-title">Competition Registration</p>
+    <p class="reg-sub">Fill in your details below to register for the MakeX Robotics Competition</p>
+  </div>
+
+  <form class="reg-form" id="regForm">
+
+    <div class="reg-field">
+      <label for="studentName">Student Name</label>
+      <input type="text" id="studentName" name="studentName" placeholder="Enter student's full name" required />
+    </div>
+
+    <div class="reg-field">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+    </div>
+
+    <div class="reg-field">
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" required />
+    </div>
+
+    <div class="reg-field">
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" placeholder="Enter your address" required />
+    </div>
+
+    <div class="reg-row">
+      <div class="reg-field">
+        <label for="grade">Select Your Grade</label>
+        <select id="grade" name="grade" required>
+          <option value="" disabled selected>Select grade</option>
+          <option value="1">Grade 1</option>
+          <option value="2">Grade 2</option>
+          <option value="3">Grade 3</option>
+          <option value="4">Grade 4</option>
+          <option value="5">Grade 5</option>
+          <option value="6">Grade 6</option>
+          <option value="7">Grade 7</option>
+          <option value="8">Grade 8</option>
+          <option value="9">Grade 9</option>
+          <option value="10">Grade 10</option>
+        </select>
+      </div>
+
+      <div class="reg-field">
+        <label for="country">Select Your Country</label>
+        <select id="country" name="country" required>
+          <option value="India" selected>India</option>
+          <option value="United States">United States</option>
+          <option value="United Arab Emirates">United Arab Emirates</option>
+          <option value="China">China</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Competition -- single select, radio-style cards, Inspire default -->
+    <div class="reg-field">
+      <label>Select Competition</label>
+      <div class="reg-choice-group" data-group="competition">
+        <label class="reg-choice active">
+          <input type="radio" name="competition" value="Inspire" checked />
+          <span>Inspire</span>
+        </label>
+        <label class="reg-choice">
+          <input type="radio" name="competition" value="Starter" />
+          <span>Starter</span>
+        </label>
+        <label class="reg-choice">
+          <input type="radio" name="competition" value="Explorer" />
+          <span>Explorer</span>
+        </label>
+        <label class="reg-choice">
+          <input type="radio" name="competition" value="Challenger" />
+          <span>Challenger</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="reg-row">
+      <div class="reg-field">
+        <label for="schoolName">School Name</label>
+        <input type="text" id="schoolName" name="schoolName" placeholder="Enter your school name" required />
+      </div>
+
+      <div class="reg-field">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" placeholder="Enter your city" required />
+      </div>
+    </div>
+
+    <button type="submit" class="reg-submit">Register</button>
+  </form>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script src="Components.js"></script>
+<script src="js/registration.js"></script>
+
+</body>
+</html>

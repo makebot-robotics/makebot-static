@@ -1,0 +1,3185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Makebot Robotics — AI, Robotics & Coding programs for CBSE schools. NEP 2020 aligned experiential learning from Grades 1-10.">
+  <title>Makebot Robotics | AI & Robotics for CBSE Schools</title>
+  <link rel="icon" type="image/png" href="/logos/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --orange: var(--brand-violet);
+      --orange-light: var(--brand-light);
+      --orange-mid: var(--brand-border);
+      --accent: var(--brand-red);
+      --gradient: linear-gradient(135deg, var(--brand-violet) 0%, var(--brand-violet) 100%);
+      --black: var(--brand-dark);
+      --dark: var(--brand-dark);
+      --gray-900: var(--brand-dark);
+      --gray-700: var(--brand-dark);
+      --gray-500: #6b6b6b;
+      --gray-300: #ccc;
+      --gray-100: var(--brand-light);
+      --gray-50: var(--brand-light);
+      --white: #ffffff;
+      --border: var(--brand-border);
+      --font-serif: 'Poppins', system-ui, sans-serif;
+      --font-sans: 'Poppins', system-ui, sans-serif;
+      --font-mono: 'Poppins', monospace;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 1px 3px rgba(var(--brand-violet-rgb), 0.07), 0 1px 2px rgba(var(--brand-violet-rgb), 0.04);
+      --shadow: 0 4px 16px rgba(var(--brand-violet-rgb), 0.10), 0 1px 4px rgba(var(--brand-violet-rgb), 0.06);
+      --shadow-lg: 0 12px 40px rgba(var(--brand-violet-rgb), 0.13), 0 4px 12px rgba(var(--brand-violet-rgb), 0.07);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--dark);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILITIES ── */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-sm {
+      padding: 64px 0;
+    }
+
+    em,
+    .italic {
+      font-style: italic;
+      font-family: var(--font-serif);
+    }
+
+    .orange {
+      color: var(--orange);
+    }
+
+    .tag-label {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--black);
+      letter-spacing: -0.01em;
+    }
+
+    h2 em {
+      font-family: var(--font-serif);
+      color: var(--orange);
+      font-style: italic;
+    }
+
+    .section-desc {
+      color: var(--gray-500);
+      font-size: 1rem;
+      margin-top: 1rem;
+      max-width: 520px;
+      line-height: 1.75;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-logo span {
+      color: var(--orange);
+      font-style: italic;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--gray-500);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--black);
+    }
+
+    .nav-cta {
+      background: var(--gradient);
+      color: var(--white);
+      text-decoration: none;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-sans);
+    }
+
+    .nav-cta:hover {
+      background: linear-gradient(135deg, var(--brand-violet), var(--brand-red));
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(var(--brand-violet-rgb), 0.35);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+      margin: 5px 0;
+      transition: all 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: 64px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(160deg, var(--brand-light) 0%, var(--brand-light) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 80px 5% 60px;
+      width: 100%;
+    }
+
+    .hero-announce {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--orange-light);
+      border: 1px solid var(--orange-mid);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--orange);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-announce-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      flex-shrink: 0;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.3
+      }
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--black);
+    }
+
+    h1 em {
+      color: var(--orange);
+      font-style: italic;
+    }
+
+    .hero-sub {
+      color: var(--gray-500);
+      font-size: 1.05rem;
+      margin-top: 1.2rem;
+      line-height: 1.75;
+      max-width: 460px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      color: var(--white);
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--brand-violet), var(--brand-red));
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(var(--brand-violet-rgb), 0.35);
+    }
+
+    .btn-outline {
+      background: var(--white);
+      color: var(--dark);
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gray-700);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.83rem;
+      color: var(--gray-500);
+    }
+
+    .hero-meta-item strong {
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    /* Hero visual */
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-card-stack {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .hero-main-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .hero-card-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    .hero-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--black);
+      line-height: 1.3;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 1.2rem;
+    }
+
+    .hero-stat-box {
+      background: var(--gray-50);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .hero-stat-lbl {
+      font-size: 0.73rem;
+      color: var(--gray-500);
+      margin-top: 4px;
+    }
+
+    .floating-badge {
+      position: absolute;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .floating-badge.top {
+      top: -18px;
+      right: -20px;
+    }
+
+    .floating-badge.bottom {
+      bottom: -18px;
+      left: -20px;
+    }
+
+    .badge-icon {
+      font-size: 1rem;
+    }
+
+    /* Curriculum topics strip */
+    .hero-topics {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+
+    .topic-pill {
+      background: var(--orange-light);
+      color: var(--orange);
+      border: 1px solid var(--orange-mid);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      background: var(--black);
+      color: var(--white);
+      padding: 32px 5%;
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    .stat-lbl {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.55);
+      margin-top: 5px;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-img-block {
+      background: var(--gray-50);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lab-illustration {
+      width: 100%;
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+
+    .about-features {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .about-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 1rem 1.2rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .about-feat:hover {
+      border-color: var(--orange);
+      box-shadow: 0 2px 12px rgba(var(--brand-violet-rgb), 0.08);
+    }
+
+    .feat-icon-wrap {
+      width: 40px;
+      height: 40px;
+      background: var(--orange-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .feat-title {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--black);
+    }
+
+    .feat-desc {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+
+    /* ── PROGRAMS ── */
+    #programs {
+      background: var(--gray-50);
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .program-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem;
+      transition: all 0.25s;
+      cursor: default;
+    }
+
+    .program-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+      border-color: transparent;
+    }
+
+    .prog-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--orange-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .prog-name {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .prog-desc {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+    }
+
+    .prog-tag {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--orange);
+      background: var(--orange-light);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    /* ── NEP ── */
+    .nep-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .nep-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .nep-item {
+      display: flex;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+      position: relative;
+    }
+
+    .nep-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .nep-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--orange);
+      flex-shrink: 0;
+      background: var(--white);
+      position: relative;
+      z-index: 1;
+    }
+
+    .nep-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+
+    .nep-desc {
+      font-size: 0.83rem;
+      color: var(--gray-500);
+      line-height: 1.65;
+    }
+
+    .nep-skills-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .skill-chip {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: border-color 0.2s;
+    }
+
+    .skill-chip:hover {
+      border-color: var(--orange);
+    }
+
+    .chip-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .chip-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--black);
+    }
+
+    .chip-sub {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+
+    /* ── WHY ── */
+    #why {
+      background: var(--black);
+    }
+
+    #why h2 {
+      color: var(--white);
+    }
+
+    #why h2 em {
+      color: var(--orange);
+    }
+
+    #why .section-desc {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    #why .tag-label {
+      color: var(--orange);
+      opacity: 0.8;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 3rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .why-card {
+      background: #141414;
+      padding: 1.8rem 1.5rem;
+      transition: background 0.2s;
+    }
+
+    .why-card:hover {
+      background: #1e1e1e;
+    }
+
+    .why-icon {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .why-title {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .why-desc {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.45);
+      line-height: 1.65;
+    }
+
+    /* ── LABS ── */
+    .labs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .lab-visual-card {
+      background: var(--gray-50);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .lab-header {
+      background: var(--black);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lab-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .lab-title-bar {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-left: auto;
+    }
+
+    .lab-body {
+      padding: 1.5rem;
+    }
+
+    .lab-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .lab-step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .step-badge {
+      background: var(--gradient);
+      color: var(--white);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 3px 9px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--black);
+    }
+
+    .step-desc {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+
+    /* ── JOURNEY ── */
+    #journey {
+      background: var(--gradient);
+    }
+
+    #journey h2 {
+      color: var(--white);
+    }
+
+    #journey .section-desc {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    #journey .tag-label {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .journey-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      margin-top: 3rem;
+      position: relative;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    .journey-step {
+      flex: 1;
+      min-width: 130px;
+      text-align: center;
+      position: relative;
+      padding: 0 0.5rem;
+    }
+
+    .journey-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 60%;
+      right: -40%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .j-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin: 0 auto 12px;
+    }
+
+    .j-label {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--white);
+      margin-bottom: 4px;
+      font-family: var(--font-sans);
+    }
+
+    .j-desc {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .testi-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .testi-card:hover {
+      box-shadow: var(--shadow-lg);
+    }
+
+    .testi-stars {
+      color: var(--orange);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.8rem;
+    }
+
+    .testi-quote {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--dark);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .testi-sep {
+      height: 1px;
+      background: var(--border);
+      margin: 1.2rem 0;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testi-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.82rem;
+      flex-shrink: 0;
+      background: var(--orange-light);
+      color: var(--orange);
+    }
+
+    .testi-name {
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--black);
+    }
+
+    .testi-role {
+      font-size: 0.78rem;
+      color: var(--gray-500);
+    }
+
+    /* ── COMPETITIONS ── */
+    #competitions {
+      background: var(--gray-50);
+    }
+
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 3rem;
+    }
+
+    .comp-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem 1.4rem;
+      text-align: center;
+      transition: all 0.25s;
+    }
+
+    .comp-card:hover {
+      box-shadow: var(--shadow);
+      border-color: var(--orange);
+      transform: translateY(-3px);
+    }
+
+    .comp-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .comp-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--black);
+      margin-bottom: 5px;
+    }
+
+    .comp-desc {
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--black);
+      border-radius: var(--radius-lg);
+      padding: 5rem 4rem;
+      text-align: center;
+      margin: 0 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(var(--brand-red-rgb), 0.2) 0%, transparent 70%);
+    }
+
+    .cta-banner h2 {
+      color: var(--white);
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-banner h2 em {
+      color: var(--orange);
+    }
+
+    .cta-banner p {
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 0.8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-banner-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--black);
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-sans);
+    }
+
+    .btn-white:hover {
+      background: var(--gray-100);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.2s;
+      display: inline-block;
+      cursor: pointer;
+      font-family: var(--font-sans);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+      color: var(--white);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--gray-50);
+      border-top: 1px solid var(--border);
+      padding: 60px 5% 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.4fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--black);
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .footer-logo span {
+      color: var(--orange);
+      font-style: italic;
+    }
+
+    .footer-desc {
+      font-size: 0.83rem;
+      color: var(--gray-500);
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--orange);
+      transform: translateY(-1px);
+    }
+
+    .footer-col h4 {
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--black);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-links a {
+      font-size: 0.83rem;
+      color: var(--gray-500);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--orange);
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--gray-500);
+    }
+
+    .c-icon {
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Inquiry form */
+    .inquiry {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .inquiry input,
+    .inquiry select {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-family: var(--font-sans);
+      font-size: 0.83rem;
+      color: var(--dark);
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .inquiry input:focus,
+    .inquiry select:focus {
+      border-color: var(--orange);
+    }
+
+    .inquiry input::placeholder {
+      color: var(--gray-300);
+    }
+
+    .inquiry select option {
+      color: var(--dark);
+    }
+
+    .inquiry-btn {
+      background: var(--gradient);
+      color: var(--white);
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .inquiry-btn:hover {
+      opacity: 0.88;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--gray-500);
+    }
+
+    /* ── PHOTO PLACEHOLDERS ── */
+    .photo-placeholder {
+      background: var(--gray-100);
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+      min-height: 200px;
+    }
+
+    .photo-placeholder::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.55);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 8px;
+    }
+
+    .photo-placeholder .ph-icon {
+      font-size: 2.2rem;
+      opacity: 0.35;
+    }
+
+    .photo-placeholder .ph-hint {
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      font-weight: 500;
+    }
+
+    /* ── GALLERY ── */
+    #gallery {
+      background: var(--gray-50);
+    }
+
+    .gallery-intro {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--gray-100);
+      border: 2px dashed var(--border);
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item .gallery-ph {
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .gallery-item .gallery-ph .ph-icon {
+      font-size: 2rem;
+      opacity: 0.3;
+    }
+
+    .gallery-item .gallery-ph .ph-hint {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      font-weight: 500;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .gallery-item .g-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 28px 12px 10px;
+      letter-spacing: 0.03em;
+    }
+
+    .gallery-item.tall {
+      grid-row: span 2;
+    }
+
+    .gallery-item.wide {
+      grid-column: span 2;
+    }
+
+    .gallery-item.tall .gallery-ph {
+      min-height: 420px;
+    }
+
+    .gallery-item.wide .gallery-ph {
+      min-height: 220px;
+    }
+
+    /* ── ENQUIRY FORM ── */
+    #enquiry {
+      background: linear-gradient(160deg, var(--brand-light) 0%, var(--brand-light) 40%, #fff 100%);
+    }
+
+    .enquiry-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .enquiry-info {
+      position: sticky;
+      top: 84px;
+    }
+
+    .enquiry-info h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .enquiry-info .section-desc {
+      margin-top: 0.5rem;
+    }
+
+    .enquiry-contact-list {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .eq-contact {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 1rem 1.2rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+    }
+
+    .eq-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .eq-label {
+      font-weight: 600;
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+
+    .eq-val {
+      color: var(--dark);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .eq-val:hover {
+      color: var(--orange);
+    }
+
+    .enquiry-form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.3rem;
+    }
+
+    .form-sub {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      margin-bottom: 2rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .form-group.full {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--dark);
+      letter-spacing: 0.02em;
+    }
+
+    .form-group label span {
+      color: var(--orange);
+    }
+
+    .form-control {
+      background: var(--gray-50);
+      border: 1.5px solid var(--border);
+      border-radius: 9px;
+      padding: 11px 14px;
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: var(--dark);
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--orange);
+      background: var(--white);
+    }
+
+    .form-control::placeholder {
+      color: var(--gray-300);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    select.form-control option {
+      background: white;
+    }
+
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 0.5rem;
+    }
+
+    .form-check input[type=checkbox] {
+      margin-top: 3px;
+      accent-color: var(--orange);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .form-check label {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+    }
+
+    .form-check label a {
+      color: var(--orange);
+    }
+
+    .form-submit {
+      background: var(--gradient);
+      color: var(--white);
+      border: none;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 1.2rem;
+      transition: all 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .form-submit:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(var(--brand-violet-rgb), 0.3);
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      text-align: center;
+      margin-top: 0.8rem;
+    }
+
+    /* success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .form-success .success-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-success h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success p {
+      color: var(--gray-500);
+      font-size: 0.9rem;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 64px 0 0 0;
+      z-index: 99;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 2rem 5%;
+      border-top: 1px solid var(--border);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 14px 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--dark);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--orange);
+    }
+
+    .mobile-menu .mobile-cta {
+      margin-top: 1.5rem;
+      background: var(--gradient);
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      padding: 14px;
+      font-weight: 700;
+      border-bottom: none !important;
+    }
+
+    /* ── TABLET (≤960px) ── */
+    @media (max-width: 960px) {
+      .section {
+        padding: 72px 0;
+      }
+
+      /* Nav */
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      /* Hero */
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 48px 5% 48px;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .floating-badge.top {
+        top: -12px;
+        right: 0;
+        font-size: 0.75rem;
+        padding: 8px 10px;
+      }
+
+      .floating-badge.bottom {
+        bottom: -12px;
+        left: 0;
+        font-size: 0.75rem;
+        padding: 8px 10px;
+      }
+
+      .hero-card-stack {
+        max-width: 100%;
+      }
+
+      /* Grids → single column */
+      .about-grid,
+      .nep-grid,
+      .labs-grid,
+      .enquiry-wrap {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      /* Programs → 2 col */
+      .programs-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      /* Why → 2 col */
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      /* Testimonials → 1 col */
+      .testi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Competitions → 2 col */
+      .comp-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      /* Footer → 2 col */
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      /* CTA banner */
+      .cta-banner {
+        padding: 3rem 2rem;
+        margin: 0 5% 60px;
+      }
+
+      /* Gallery */
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-item.wide {
+        grid-column: span 2;
+      }
+
+      .gallery-item.tall {
+        grid-row: span 1;
+      }
+
+      .gallery-item.tall .gallery-ph {
+        min-height: 200px;
+      }
+
+      /* Enquiry */
+      .enquiry-info {
+        position: static;
+      }
+
+      .nep-skills-wrap {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      /* Stats */
+      .stats-row {
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+    }
+
+    /* ── MOBILE (≤600px) ── */
+    @media (max-width: 600px) {
+      .section {
+        padding: 56px 0;
+      }
+
+      .container {
+        padding: 0 4%;
+      }
+
+      /* Typography */
+      h1 {
+        font-size: 2rem;
+        line-height: 1.15;
+      }
+
+      h2 {
+        font-size: 1.7rem;
+      }
+
+      .section-desc {
+        font-size: 0.92rem;
+      }
+
+      /* Hero */
+      .hero-inner {
+        padding: 36px 4% 40px;
+        gap: 2rem;
+      }
+
+      .hero-announce {
+        font-size: 0.72rem;
+        padding: 5px 12px;
+      }
+
+      .hero-sub {
+        font-size: 0.95rem;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero-btns .btn-primary,
+      .hero-btns .btn-outline {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero-meta {
+        gap: 0.8rem;
+      }
+
+      .hero-meta-item {
+        font-size: 0.78rem;
+      }
+
+      .hero-stat-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .hero-stat-num {
+        font-size: 1.4rem;
+      }
+
+      .hero-card-title {
+        font-size: 1.1rem;
+      }
+
+      .floating-badge {
+        display: none;
+      }
+
+      /* Stats strip */
+      .stats-row {
+        grid-template-columns: 1fr 1fr;
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .stat-num {
+        font-size: 1.9rem;
+      }
+
+      /* Programs */
+      .programs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* NEP */
+      .nep-skills-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      /* Why */
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+      }
+
+      .why-card {
+        padding: 1.2rem 1rem;
+      }
+
+      .why-icon {
+        font-size: 1.3rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .why-title {
+        font-size: 0.82rem;
+      }
+
+      .why-desc {
+        font-size: 0.74rem;
+      }
+
+      /* Labs grid */
+      .labs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Journey */
+      .journey-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+      }
+
+      .journey-step {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1rem;
+        min-width: 100%;
+        text-align: left;
+        padding: 0 0 1.5rem 0;
+      }
+
+      .journey-step:not(:last-child)::after {
+        display: none;
+      }
+
+      .journey-step:not(:last-child)::before {
+        content: '';
+        position: absolute;
+        left: 27px;
+        top: 56px;
+        bottom: 0;
+        width: 2px;
+        height: 1.5rem;
+        background: rgba(255, 255, 255, 0.35);
+      }
+
+      .j-circle {
+        margin: 0;
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+      }
+
+      .j-label {
+        font-size: 0.88rem;
+        margin-bottom: 2px;
+      }
+
+      .j-desc {
+        font-size: 0.75rem;
+      }
+
+      /* Testimonials */
+      .testi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Competitions */
+      .comp-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+      }
+
+      .comp-icon {
+        font-size: 1.4rem;
+      }
+
+      .comp-title {
+        font-size: 0.82rem;
+      }
+
+      .comp-desc {
+        font-size: 0.72rem;
+      }
+
+      /* CTA banner */
+      .cta-banner {
+        padding: 2.5rem 1.5rem;
+        margin: 0 4% 48px;
+        border-radius: var(--radius);
+      }
+
+      .cta-banner h2 {
+        font-size: 1.6rem;
+      }
+
+      .cta-banner-btns {
+        flex-direction: column;
+      }
+
+      .cta-banner-btns .btn-white,
+      .cta-banner-btns .btn-ghost {
+        width: 100%;
+        text-align: center;
+      }
+
+      /* Gallery */
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+
+      .gallery-item.tall,
+      .gallery-item.wide {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .gallery-intro {
+        flex-direction: column;
+      }
+
+      /* Enquiry form */
+      .enquiry-form-card {
+        padding: 1.4rem;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: span 1;
+      }
+
+      .form-title {
+        font-size: 1.2rem;
+      }
+
+      .form-submit {
+        font-size: 0.88rem;
+        padding: 13px;
+      }
+
+      .enquiry-contact-list {
+        gap: 0.8rem;
+      }
+
+      /* Footer */
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
+      }
+
+      .social-row {
+        flex-wrap: wrap;
+      }
+
+      /* Buttons */
+      .btn-primary,
+      .btn-outline {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+
+      /* About features */
+      .about-features {
+        gap: 0.8rem;
+      }
+
+      .about-feat {
+        padding: 0.9rem 1rem;
+      }
+
+      /* NEP timeline */
+      .nep-item {
+        gap: 1rem;
+        padding-bottom: 1.5rem;
+      }
+
+      .nep-num {
+        width: 34px;
+        height: 34px;
+        font-size: 0.7rem;
+      }
+
+      /* Lab photo grid */
+      .lab-photo-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.8rem !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="logos/logo.png" alt="Makebot Robotics"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+      <span
+        style="display:none;font-family:var(--font-serif);font-size:1.35rem;font-weight:700;color:var(--black)">Make<span
+          style="color:var(--orange);font-style:italic">bot</span> Robotics</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#nep">NEP 2020</a></li>
+      <li><a href="#labs">Labs</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#enquiry">Contact</a></li>
+    </ul>
+    <a href="#enquiry" class="nav-cta">Book Free Demo</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about" onclick="closeMobileMenu()">About</a>
+    <a href="#programs" onclick="closeMobileMenu()">Programs</a>
+    <a href="#nep" onclick="closeMobileMenu()">NEP 2020</a>
+    <a href="#labs" onclick="closeMobileMenu()">Labs</a>
+    <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
+    <a href="#testimonials" onclick="closeMobileMenu()">Reviews</a>
+    <a href="#enquiry" onclick="closeMobileMenu()" class="mobile-cta">Book Free Demo →</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-announce">
+          <span class="hero-announce-dot"></span>
+          NEP 2020 Aligned · CBSE Approved Programs
+        </div>
+        <h1>Bring <em>AI, Robotics</em><br>Coding to<br>Your School</h1>
+        <p class="hero-sub">Experiential learning programs for CBSE schools from Grades 1-10. Transform your classrooms
+          into future-ready innovation hubs.</p>
+        <div class="hero-btns">
+          <a href="#enquiry" class="btn-primary">Book a Free Demo →</a>
+          <a href="#" class="btn-outline">Download Brochure</a>
+        </div>
+        <div class="hero-meta">
+          <span class="hero-meta-item">🏫 <strong>250+</strong> Partner Schools</span>
+          <span class="hero-meta-item">👨‍🎓 <strong>10,000+</strong> Students Trained</span>
+          <span class="hero-meta-item">🇮🇳 <strong>20</strong> States</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="floating-badge top">
+            <span class="badge-icon">🏆</span> National Robotics Olympiad Partner
+          </div>
+          <div class="hero-main-card">
+            <div class="hero-card-label">// Makebot School Program</div>
+            <div class="hero-card-title">India's most complete<br><em>AI Robotics</em> curriculum<br>for CBSE schools
+            </div>
+            <div class="hero-topics">
+              <span class="topic-pill">🤖 Robotics</span>
+              <span class="topic-pill">🧠 AI ML</span>
+              <span class="topic-pill">💻 Coding</span>
+              <span class="topic-pill">🌐 IoT</span>
+              <span class="topic-pill">🎮 Game Dev</span>
+              <span class="topic-pill">🔐 Cybersecurity</span>
+            </div>
+            <div class="hero-stat-row">
+              <div class="hero-stat-box">
+                <div class="hero-stat-num">500+</div>
+                <div class="hero-stat-lbl">Hands-on Projects</div>
+              </div>
+              <div class="hero-stat-box">
+                <div class="hero-stat-num">Gr. 1-10</div>
+                <div class="hero-stat-lbl">Grade Coverage</div>
+              </div>
+              <div class="hero-stat-box">
+                <div class="hero-stat-num">7 days</div>
+                <div class="hero-stat-lbl">Lab Setup</div>
+              </div>
+              <div class="hero-stat-box">
+                <div class="hero-stat-num">100%</div>
+                <div class="hero-stat-lbl">NEP 2020 Aligned</div>
+              </div>
+            </div>
+          </div>
+          <div class="floating-badge bottom">
+            <span class="badge-icon">✅</span> CBSE Skill Education Certified
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stats-row">
+      <div class="stat-item reveal">
+        <div class="stat-num" data-target="10000">0</div>
+        <div class="stat-lbl">Students Trained</div>
+      </div>
+      <div class="stat-item reveal" style="transition-delay:0.08s">
+        <div class="stat-num" data-target="200">0</div>
+        <div class="stat-lbl">Partner Schools</div>
+      </div>
+      <div class="stat-item reveal" style="transition-delay:0.16s">
+        <div class="stat-num" data-target="500">0</div>
+        <div class="stat-lbl">Hands-on Projects</div>
+      </div>
+      <div class="stat-item reveal" style="transition-delay:0.24s">
+        <div class="stat-num" data-target="20">0</div>
+        <div class="stat-lbl">States Covered</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="reveal">
+          <p class="tag-label">// About Makebot</p>
+          <h2>India's leading <em>STEM & Robotics</em> ed-tech partner for schools</h2>
+          <p class="section-desc">Makebot Robotics partners with CBSE schools to build complete AI, Robotics, and Coding
+            programs — curriculum, labs, hardware, training, and support all included.</p>
+          <div class="about-features">
+            <div class="about-feat">
+              <div class="feat-icon-wrap">🤖</div>
+              <div>
+                <div class="feat-title">AI Robotics Labs</div>
+                <div class="feat-desc">Fully equipped labs with industry-grade kits, sensors, and AI tools set up in 7
+                  days.</div>
+              </div>
+            </div>
+            <div class="about-feat">
+              <div class="feat-icon-wrap">📚</div>
+              <div>
+                <div class="feat-title">Ready-to-Teach Curriculum</div>
+                <div class="feat-desc">Plug-and-play lesson plans, assessments, and project guides for every grade.
+                </div>
+              </div>
+            </div>
+            <div class="about-feat">
+              <div class="feat-icon-wrap">👩‍🏫</div>
+              <div>
+                <div class="feat-title">Teacher Training LMS</div>
+                <div class="feat-desc">Comprehensive onboarding, LMS access, and year-round academic support.</div>
+              </div>
+            </div>
+            <div class="about-feat">
+              <div class="feat-icon-wrap">🏅</div>
+              <div>
+                <div class="feat-title">Competitions Certifications</div>
+                <div class="feat-desc">Annual Robotics Olympiad, hackathons, and nationally recognised student
+                  certificates.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-img-block reveal" style="transition-delay:0.12s;padding:0;overflow:hidden;">
+          <div class="photo-placeholder" style="aspect-ratio:4/3;" data-label="Lab Setup Photo">
+            <img src="images/about-lab.jpg" alt="Makebot AI & Robotics Lab Setup"
+              style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-lg);"
+              onerror="this.style.display='none'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROGRAMS -->
+  <section id="programs" class="section">
+    <div class="container">
+      <p class="tag-label reveal">// Programs</p>
+      <h2 class="reveal">Six world-class programs for <em>every grade</em></h2>
+      <p class="section-desc reveal" style="transition-delay:0.08s">From AI to Game Development — comprehensive
+        future-skills programs designed for CBSE schools, aligned with NEP 2020.</p>
+      <div class="programs-grid">
+        <div class="program-card reveal">
+          <div class="prog-icon-wrap">🧠</div>
+          <div class="prog-name">AI & Machine Learning</div>
+          <div class="prog-desc">Neural networks, model training, and real-world AI applications using age-appropriate
+            tools and datasets.</div>
+          <span class="prog-tag">Grades 6-10</span>
+        </div>
+        <div class="program-card reveal" style="transition-delay:0.05s">
+          <div class="prog-icon-wrap">🤖</div>
+          <div class="prog-name">Robotics & Automation</div>
+          <div class="prog-desc">Build, program, and automate robots using industry-standard kits, sensors, and
+            microcontrollers.</div>
+          <span class="prog-tag">Grades 3-10</span>
+        </div>
+        <div class="program-card reveal" style="transition-delay:0.1s">
+          <div class="prog-icon-wrap">💻</div>
+          <div class="prog-name">Coding & App Development</div>
+          <div class="prog-desc">From Scratch to Python — students create apps, games, and websites through guided
+            project tracks.</div>
+          <span class="prog-tag">Grades 1-10</span>
+        </div>
+        <div class="program-card reveal" style="transition-delay:0.15s">
+          <div class="prog-icon-wrap">🌐</div>
+          <div class="prog-name">IoT & Smart Systems</div>
+          <div class="prog-desc">Build smart homes, weather stations, and connected devices using Arduino, Raspberry Pi,
+            and sensors.</div>
+          <span class="prog-tag">Grades 6-10</span>
+        </div>
+        <div class="program-card reveal" style="transition-delay:0.2s">
+          <div class="prog-icon-wrap">🔐</div>
+          <div class="prog-name">Cybersecurity Basics</div>
+          <div class="prog-desc">Digital safety, ethical hacking concepts, data privacy practices, and secure coding
+            fundamentals.</div>
+          <span class="prog-tag">Grades 7-10</span>
+        </div>
+        <div class="program-card reveal" style="transition-delay:0.25s">
+          <div class="prog-icon-wrap">🎮</div>
+          <div class="prog-name">Game Development</div>
+          <div class="prog-desc">Design and build playable games — game logic, physics, storytelling, and creative
+            problem solving.</div>
+          <span class="prog-tag">Grades 4-10</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- NEP 2020 -->
+  <section id="nep" class="section">
+    <div class="container">
+      <p class="tag-label reveal">// NEP 2020 CBSE Alignment</p>
+      <h2 class="reveal">Built for India's <em>New Education Policy</em></h2>
+      <div class="nep-grid">
+        <div class="nep-timeline reveal">
+          <div class="nep-item">
+            <div class="nep-num">01</div>
+            <div>
+              <div class="nep-title">CBSE Skill Education Integration</div>
+              <div class="nep-desc">Curriculum maps directly to CBSE skill subject codes and assessment frameworks for
+                seamless school compliance.</div>
+            </div>
+          </div>
+          <div class="nep-item">
+            <div class="nep-num">02</div>
+            <div>
+              <div class="nep-title">Experiential & Project-Based Learning</div>
+              <div class="nep-desc">NEP 2020 mandates hands-on learning. Every Makebot module is built around real-world
+                projects and measurable outcomes.</div>
+            </div>
+          </div>
+          <div class="nep-item">
+            <div class="nep-num">03</div>
+            <div>
+              <div class="nep-title">Coding & AI Curriculum (Grades 1-10)</div>
+              <div class="nep-desc">Structured coding from Grade 1, scaling to AI and Data Science by Grade 10 — exactly
+                as prescribed by NEP 2020.</div>
+            </div>
+          </div>
+          <div class="nep-item">
+            <div class="nep-num">04</div>
+            <div>
+              <div class="nep-title">Critical Thinking & Design Thinking</div>
+              <div class="nep-desc">Problem-solving frameworks, creative thinking, and design methodology embedded into
+                every learning session.</div>
+            </div>
+          </div>
+          <div class="nep-item" style="padding-bottom:0">
+            <div class="nep-num">05</div>
+            <div>
+              <div class="nep-title">21st Century Skills Framework</div>
+              <div class="nep-desc">Communication, collaboration, creativity, and critical thinking — the 4Cs of modern
+                education woven into every module.</div>
+            </div>
+          </div>
+        </div>
+        <div class="nep-skills-wrap reveal" style="transition-delay:0.12s">
+          <div class="skill-chip">
+            <span class="chip-icon">🎯</span>
+            <div>
+              <div class="chip-name">Problem Solving</div>
+              <div class="chip-sub">Computational thinking logic</div>
+            </div>
+          </div>
+          <div class="skill-chip">
+            <span class="chip-icon">🎨</span>
+            <div>
+              <div class="chip-name">Design Thinking</div>
+              <div class="chip-sub">Empathise → prototype → iterate</div>
+            </div>
+          </div>
+          <div class="skill-chip">
+            <span class="chip-icon">🤝</span>
+            <div>
+              <div class="chip-name">Collaboration</div>
+              <div class="chip-sub">Team-based project learning</div>
+            </div>
+          </div>
+          <div class="skill-chip">
+            <span class="chip-icon">💡</span>
+            <div>
+              <div class="chip-name">Innovation Mindset</div>
+              <div class="chip-sub">Hackathons maker culture</div>
+            </div>
+          </div>
+          <div class="skill-chip">
+            <span class="chip-icon">📊</span>
+            <div>
+              <div class="chip-name">Data Literacy</div>
+              <div class="chip-sub">Analyse, interpret, visualise</div>
+            </div>
+          </div>
+          <div class="skill-chip">
+            <span class="chip-icon">🌍</span>
+            <div>
+              <div class="chip-name">Digital Citizenship</div>
+              <div class="chip-sub">Ethics, safety responsibility</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY MAKEBOT -->
+  <section id="why" class="section">
+    <div class="container">
+      <p class="tag-label reveal">// Why Schools Choose Us</p>
+      <h2 class="reveal">Everything your school needs<br>to <em>succeed and grow</em></h2>
+      <div class="why-grid reveal" style="transition-delay:0.1s">
+        <div class="why-card">
+          <div class="why-icon">📚</div>
+          <div class="why-title">Ready-to-Use Curriculum</div>
+          <div class="why-desc">Plug-and-play lesson plans, activities, and assessments for every grade and subject.
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">👩‍🏫</div>
+          <div class="why-title">Teacher Training</div>
+          <div class="why-desc">Comprehensive onboarding and year-round support so your teachers teach with confidence.
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🏅</div>
+          <div class="why-title">Student Certifications</div>
+          <div class="why-desc">Nationally recognised STEM certificates for every student upon program completion.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🦾</div>
+          <div class="why-title">Premium Robotics Kits</div>
+          <div class="why-desc">Industry-grade, durable hardware kits designed and tested for classroom use.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🧠</div>
+          <div class="why-title">AI-Based Learning</div>
+          <div class="why-desc">Personalised learning paths powered by AI analytics and real-time performance tracking.
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🏆</div>
+          <div class="why-title">Annual Competitions</div>
+          <div class="why-desc">Regional and national robotics competitions that put your school on the map.</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🧪</div>
+          <div class="why-title">150+ Experiments</div>
+          <div class="why-desc">Hands-on activities and real-world projects across all grade levels throughout the year.
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">📱</div>
+          <div class="why-title">Full LMS Included</div>
+          <div class="why-desc">Complete digital learning management system for teachers, students, and parents.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LABS -->
+  <section id="labs" class="section">
+    <div class="container">
+      <p class="tag-label reveal">// Lab Setup</p>
+      <h2 class="reveal">Transform your school into an<br><em>AI & Robotics Innovation Lab</em></h2>
+      <div class="labs-grid">
+        <div class="lab-visual-card reveal" style="overflow:visible;border:none;background:none;">
+          <div class="lab-photo-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div class="photo-placeholder" style="aspect-ratio:1/1;border-radius:var(--radius-lg);"
+              data-label="Lab Setup">
+              <span class="ph-icon">🏫</span>
+              <span class="ph-hint">Replace with lab photo</span>
+              <img src="images/lab-setup-1.jpg" alt="Lab Setup"
+                style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg)"
+                onerror="this.remove()">
+            </div>
+            <div class="photo-placeholder" style="aspect-ratio:1/1;border-radius:var(--radius-lg);margin-top:1.5rem;"
+              data-label="Students Working">
+              <span class="ph-icon">👩‍💻</span>
+              <span class="ph-hint">Replace with student photo</span>
+              <img src="images/lab-setup-2.jpg" alt="Students"
+                style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg)"
+                onerror="this.remove()">
+            </div>
+            <div class="photo-placeholder" style="aspect-ratio:1/1;border-radius:var(--radius-lg);margin-top:-1.5rem;"
+              data-label="Robot Build">
+              <span class="ph-icon">🤖</span>
+              <span class="ph-hint">Replace with robotics photo</span>
+              <img src="images/lab-setup-3.jpg" alt="Robot Build"
+                style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg)"
+                onerror="this.remove()">
+            </div>
+            <div class="photo-placeholder" style="aspect-ratio:1/1;border-radius:var(--radius-lg);"
+              data-label="Coding Class">
+              <span class="ph-icon">💻</span>
+              <span class="ph-hint">Replace with coding photo</span>
+              <img src="images/lab-setup-4.jpg" alt="Coding"
+                style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg)"
+                onerror="this.remove()">
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.12s">
+          <p class="section-desc" style="margin-top:0;margin-bottom:2rem">From empty room to fully operational AI &
+            Robotics lab in just 7 days — everything included, nothing extra to buy.</p>
+          <div class="about-features">
+            <div class="about-feat">
+              <div class="feat-icon-wrap">📦</div>
+              <div>
+                <div class="feat-title">All Hardware Included</div>
+                <div class="feat-desc">Robotics kits, sensors, microcontrollers, AI cameras, and accessories — all
+                  bundled.</div>
+              </div>
+            </div>
+            <div class="about-feat">
+              <div class="feat-icon-wrap">💾</div>
+              <div>
+                <div class="feat-title">Software & LMS Configured</div>
+                <div class="feat-desc">Every device pre-configured with lesson plans, simulators, and student accounts.
+                </div>
+              </div>
+            </div>
+            <div class="about-feat">
+              <div class="feat-icon-wrap">🛠️</div>
+              <div>
+                <div class="feat-title">Year-Round Technical Support</div>
+                <div class="feat-desc">Dedicated support team for hardware, software, and curriculum help throughout the
+                  year.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDENT JOURNEY -->
+  <section id="journey" class="section">
+    <div class="container">
+      <p class="tag-label reveal">// Student Journey</p>
+      <h2 class="reveal">From curious learner<br>to <em>future innovator</em></h2>
+      <div class="journey-row reveal" style="transition-delay:0.1s">
+        <div class="journey-step">
+          <div class="j-circle">📖</div>
+          <div class="j-label">Learn</div>
+          <div class="j-desc">Core concepts theory</div>
+        </div>
+        <div class="journey-step">
+          <div class="j-circle">🔨</div>
+          <div class="j-label">Build</div>
+          <div class="j-desc">Hands-on projects</div>
+        </div>
+        <div class="journey-step">
+          <div class="j-circle">💻</div>
+          <div class="j-label">Code</div>
+          <div class="j-desc">Program develop</div>
+        </div>
+        <div class="journey-step">
+          <div class="j-circle">💡</div>
+          <div class="j-label">Innovate</div>
+          <div class="j-desc">Original solutions</div>
+        </div>
+        <div class="journey-step">
+          <div class="j-circle">🏆</div>
+          <div class="j-label">Compete</div>
+          <div class="j-desc">National competitions</div>
+        </div>
+        <div class="journey-step">
+          <div class="j-circle">🚀</div>
+          <div class="j-label">Future Ready</div>
+          <div class="j-desc">Career prepared</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <p class="tag-label reveal">// What Schools Say</p>
+      <h2 class="reveal">Trusted by principals, teachers,<br> <em>parents across India</em></h2>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote">"Makebot transformed our school. Within 3 months of setting up the AI lab, our
+            students won the State Robotics Championship. The curriculum is exceptional."</div>
+          <div class="testi-sep"></div>
+          <div class="testi-author">
+            <div class="testi-avatar">RS</div>
+            <div>
+              <div class="testi-name">Dr. Rajesh Sharma</div>
+              <div class="testi-role">Principal, DPS Faridabad</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:0.08s">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote">"The NEP 2020 alignment is perfect for our vision. Students are genuinely excited
+            about coding and robotics. Parent feedback has been overwhelmingly positive."</div>
+          <div class="testi-sep"></div>
+          <div class="testi-author">
+            <div class="testi-avatar">PM</div>
+            <div>
+              <div class="testi-name">Ms. Priya Mehta</div>
+              <div class="testi-role">Vice Principal, Ryan International</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:0.16s">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote">"My son built his own AI weather monitoring robot! His confidence and logical
+            thinking have improved dramatically since joining Makebot's program."</div>
+          <div class="testi-sep"></div>
+          <div class="testi-author">
+            <div class="testi-avatar">AK</div>
+            <div>
+              <div class="testi-name">Anjali Kapoor</div>
+              <div class="testi-role">Parent, Grade 7 Student, Pune</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:0.04s">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote">"The teacher training program made me confident to deliver AI lessons. The LMS is
+            intuitive and saves me hours of prep time every week."</div>
+          <div class="testi-sep"></div>
+          <div class="testi-author">
+            <div class="testi-avatar">ST</div>
+            <div>
+              <div class="testi-name">Suresh Tiwari</div>
+              <div class="testi-role">CS Teacher, Kendriya Vidyalaya</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:0.12s">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote">"We partnered with Makebot for all 12 schools in our chain. The standardised
+            curriculum and support system is fantastic. Management is extremely pleased."</div>
+          <div class="testi-sep"></div>
+          <div class="testi-author">
+            <div class="testi-avatar">RG</div>
+            <div>
+              <div class="testi-name">Mr. Ramesh Gupta</div>
+              <div class="testi-role">School Director, Lotus Group</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:0.2s">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote">"I won the National Robotics Olympiad! I made an AI plant watering system for the
+            Science Fair and got a gold medal. Makebot classes are the best part of my week."</div>
+          <div class="testi-sep"></div>
+          <div class="testi-author">
+            <div class="testi-avatar">AV</div>
+            <div>
+              <div class="testi-name">Arjun Verma</div>
+              <div class="testi-role">Student, Grade 9, Pune</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- COMPETITIONS -->
+  <section id="competitions" class="section">
+    <div class="container">
+      <p class="tag-label reveal">// Competitions Certifications</p>
+      <h2 class="reveal">Win at state <em>national level</em></h2>
+      <div class="comp-grid">
+        <div class="comp-card reveal">
+          <div class="comp-icon">🏆</div>
+          <div class="comp-title">Robotics Olympiad</div>
+          <div class="comp-desc">State national level robotics design and performance competitions</div>
+        </div>
+        <div class="comp-card reveal" style="transition-delay:0.06s">
+          <div class="comp-icon">⚡</div>
+          <div class="comp-title">AI Hackathons</div>
+          <div class="comp-desc">48-hour AI and innovation challenges for senior students</div>
+        </div>
+        <div class="comp-card reveal" style="transition-delay:0.12s">
+          <div class="comp-icon">💻</div>
+          <div class="comp-title">Coding Championships</div>
+          <div class="comp-desc">Competitive programming events across all grade categories</div>
+        </div>
+        <div class="comp-card reveal" style="transition-delay:0.18s">
+          <div class="comp-icon">🎓</div>
+          <div class="comp-title">STEM Certifications</div>
+          <div class="comp-desc">Nationally recognised certificates for every program completer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <div class="gallery-intro">
+        <div>
+          <p class="tag-label reveal">// Photo Gallery</p>
+          <h2 class="reveal">Labs, Students <em>Real Moments</em></h2>
+        </div>
+        <p class="section-desc reveal" style="margin-top:0;transition-delay:0.1s">Add your own school photos below —
+          just replace the image files and the placeholders will fill in automatically.</p>
+      </div>
+      <div class="gallery-grid reveal" style="transition-delay:0.1s">
+        <!-- Large left item -->
+        <div class="gallery-item tall">
+          <div class="gallery-ph">
+            <span class="ph-icon">🏫</span>
+            <span class="ph-hint">Lab Overview / Wide Shot<br>Recommended: 600×800px</span>
+          </div>
+          <img src="images/gallery-1.jpg" alt="Lab Overview" onerror="this.remove()">
+          <div class="g-label">AI & Robotics Lab</div>
+        </div>
+        <!-- Top middle -->
+        <div class="gallery-item">
+          <div class="gallery-ph">
+            <span class="ph-icon">👩‍💻</span>
+            <span class="ph-hint">Students Coding<br>Recommended: 600×400px</span>
+          </div>
+          <img src="images/gallery-2.jpg" alt="Students Coding" onerror="this.remove()">
+          <div class="g-label">Coding Session</div>
+        </div>
+        <!-- Top right -->
+        <div class="gallery-item">
+          <div class="gallery-ph">
+            <span class="ph-icon">🤖</span>
+            <span class="ph-hint">Robot Building<br>Recommended: 600×400px</span>
+          </div>
+          <img src="images/gallery-3.jpg" alt="Robot Building" onerror="this.remove()">
+          <div class="g-label">Robotics Workshop</div>
+        </div>
+        <!-- Bottom middle -->
+        <div class="gallery-item">
+          <div class="gallery-ph">
+            <span class="ph-icon">🏆</span>
+            <span class="ph-hint">Competition / Award<br>Recommended: 600×400px</span>
+          </div>
+          <img src="images/gallery-4.jpg" alt="Competition" onerror="this.remove()">
+          <div class="g-label">Robotics Olympiad</div>
+        </div>
+        <!-- Bottom right -->
+        <div class="gallery-item">
+          <div class="gallery-ph">
+            <span class="ph-icon">👨‍🏫</span>
+            <span class="ph-hint">Teacher Training<br>Recommended: 600×400px</span>
+          </div>
+          <img src="images/gallery-5.jpg" alt="Teacher Training" onerror="this.remove()">
+          <div class="g-label">Teacher Training</div>
+        </div>
+        <!-- Wide bottom -->
+        <div class="gallery-item wide">
+          <div class="gallery-ph">
+            <span class="ph-icon">🎉</span>
+            <span class="ph-hint">School Event / Group Photo — Recommended: 1200×500px</span>
+          </div>
+          <img src="images/gallery-6.jpg" alt="School Event" onerror="this.remove()">
+          <div class="g-label">School Innovation Day</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ENQUIRY FORM -->
+  <section id="enquiry" class="section">
+    <div class="container">
+      <div class="enquiry-wrap">
+        <div class="enquiry-info reveal">
+          <p class="tag-label">// Get in Touch</p>
+          <h2>Let's bring <em>Makebot</em> to your school</h2>
+          <p class="section-desc">Fill in the form and our team will get back within 24 hours with a customised proposal
+            for your school.</p>
+          <div class="enquiry-contact-list">
+            <div class="eq-contact">
+              <span class="eq-icon">📞</span>
+              <div>
+                <div class="eq-label">Call / WhatsApp</div>
+                <a href="tel:+919321962943" class="eq-val">+91 93219 62943</a>
+              </div>
+            </div>
+            <div class="eq-contact">
+              <span class="eq-icon">✉️</span>
+              <div>
+                <div class="eq-label">Email Us</div>
+                <a href="mailto:info@makebot.in" class="eq-val">info@makebot.in</a>
+              </div>
+            </div>
+            <div class="eq-contact">
+              <span class="eq-icon">📍</span>
+              <div>
+                <div class="eq-label">Office</div>
+                <span class="eq-val" style="font-size:0.82rem;line-height:1.5">B Wing, RUPA SOLITAIRE, Office No-606,
+                  Millenium Business Park, Navi Mumbai 400710</span>
+              </div>
+            </div>
+            <div class="eq-contact">
+              <span class="eq-icon">🕒</span>
+              <div>
+                <div class="eq-label">Working Hours</div>
+                <span class="eq-val">Mon - Sat, 9:00 AM - 6:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="transition-delay:0.12s">
+          <div class="enquiry-form-card" id="enquiry-form-wrap">
+            <div class="form-title">Book a Free School Demo</div>
+            <div class="form-sub">No commitment required. Our expert will visit your school at a time that suits you.
+            </div>
+            <form id="enquiry-form" onsubmit="handleEnquiry(event)" novalidate>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>School Name <span>*</span></label>
+                  <input type="text" class="form-control" placeholder="e.g. Delhi Public School" required>
+                </div>
+                <div class="form-group">
+                  <label>Board / Affiliation <span>*</span></label>
+                  <select class="form-control" required>
+                    <option value="" disabled selected>Select board</option>
+                    <option>CBSE</option>
+                    <option>ICSE</option>
+                    <option>State Board</option>
+                    <option>IB / IGCSE</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Your Name <span>*</span></label>
+                  <input type="text" class="form-control" placeholder="Full name" required>
+                </div>
+                <div class="form-group">
+                  <label>Designation <span>*</span></label>
+                  <select class="form-control" required>
+                    <option value="" disabled selected>Your role</option>
+                    <option>Principal</option>
+                    <option>Vice Principal</option>
+                    <option>School Director / Owner</option>
+                    <option>Academic Coordinator</option>
+                    <option>Teacher</option>
+                    <option>Parent</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Mobile Number <span>*</span></label>
+                  <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+                </div>
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input type="email" class="form-control" placeholder="school@email.com">
+                </div>
+                <div class="form-group">
+                  <label>City / State <span>*</span></label>
+                  <input type="text" class="form-control" placeholder="e.g. Pune, Maharashtra" required>
+                </div>
+                <div class="form-group">
+                  <label>Number of Students</label>
+                  <select class="form-control">
+                    <option value="" disabled selected>Approx. strength</option>
+                    <option>Under 300</option>
+                    <option>300 - 600</option>
+                    <option>600 - 1000</option>
+                    <option>1000 - 2000</option>
+                    <option>2000+</option>
+                  </select>
+                </div>
+                <div class="form-group full">
+                  <label>Interested In <span>*</span></label>
+                  <select class="form-control" required>
+                    <option value="" disabled selected>Select program</option>
+                    <option>Complete AI & Robotics Lab Setup</option>
+                    <option>AI & Machine Learning Program</option>
+                    <option>Robotics & Automation Program</option>
+                    <option>Coding & App Development</option>
+                    <option>IoT & Smart Systems</option>
+                    <option>Cybersecurity Basics</option>
+                    <option>Game Development</option>
+                    <option>Full STEM Package (All Programs)</option>
+                    <option>Teacher Training Only</option>
+                    <option>Not Sure — Need Guidance</option>
+                  </select>
+                </div>
+                <div class="form-group full">
+                  <label>Message / Additional Requirements</label>
+                  <textarea class="form-control"
+                    placeholder="Tell us about your school, current infrastructure, or any specific requirements…"></textarea>
+                </div>
+                <div class="form-group full">
+                  <div class="form-check">
+                    <input type="checkbox" id="consent" required>
+                    <label for="consent">I agree to be contacted by the Makebot team regarding programs and offers. View
+                      our <a href="#">Privacy Policy</a>.</label>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="form-submit">Submit Enquiry — We'll Call You Back →</button>
+              <p class="form-note">🔒 Your information is safe with us. No spam, ever.</p>
+            </form>
+            <div class="form-success" id="form-success">
+              <div class="success-icon">🎉</div>
+              <h3>Thank you! We'll be in touch soon.</h3>
+              <p>Our team will contact you within 24 hours to schedule your free school demo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner reveal">
+    <h2>Future-ready schools<br><em>start here</em></h2>
+    <p>Join 100+ CBSE schools transforming students into AI & Robotics innovators. Demo is free, setup is fast.</p>
+    <div class="cta-banner-btns">
+      <a href="#enquiry" class="btn-white">Schedule a Free School Demo →</a>
+      <a href="tel:+919321962943" class="btn-ghost">📞 Call Us Now</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#" style="display:inline-block;margin-bottom:0.8rem;text-decoration:none">
+            <img src="logo.png" alt="Makebot Robotics" style="height:40px;width:auto"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="footer-logo" style="display:none">Make<span>bot</span> Robotics</span>
+          </a>
+          <p class="footer-desc">Transforming CBSE schools into future-ready AI & Robotics innovation hubs through NEP
+            2020 aligned experiential learning programs for Grades 1-10.</p>
+          <div class="social-row">
+            <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+            <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+            <a href="#" class="social-btn" aria-label="LinkedIn">💼</a>
+            <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
+          </div>
+        </div>
+        <div>
+          <h4>Programs</h4>
+          <ul class="footer-links">
+            <li><a href="#">AI & Machine Learning</a></li>
+            <li><a href="#">Robotics & Automation</a></li>
+            <li><a href="#">Coding & App Dev</a></li>
+            <li><a href="#">IoT & Smart Systems</a></li>
+            <li><a href="#">Cybersecurity Basics</a></li>
+            <li><a href="#">Game Development</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Makebot</a></li>
+            <li><a href="#">Lab Setup</a></li>
+            <li><a href="#">Teacher Training</a></li>
+            <li><a href="#">Certifications</a></li>
+            <li><a href="#">Competitions</a></li>
+            <li><a href="#">Download Brochure</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="contact-list">
+            <div class="contact-item"><span class="c-icon">📍</span><span>B Wing, RUPA SOLITAIRE, Office No- 606 L5
+                lift, Millenium Business Park, MIDC Industrial Area, Sector 1, Navi Mumbai, Maharashtra 400710</span>
+            </div>
+            <div class="contact-item"><span class="c-icon">📞</span><a href="tel:+919321962943"
+                style="color:inherit;text-decoration:none">+91 93219 62943</a></div>
+            <div class="contact-item"><span class="c-icon">✉️</span><a href="mailto:info@makebot.in"
+                style="color:inherit;text-decoration:none">info@makebot.in</a></div>
+            <div class="contact-item"><span class="c-icon">🌐</span><a href="https://www.makebot.in"
+                style="color:var(--orange);text-decoration:none">www.makebot.in</a></div>
+          </div>
+          <h4 style="margin-top:1.5rem;margin-bottom:0.6rem">Quick Inquiry</h4>
+          <div class="inquiry">
+            <input type="text" placeholder="School name">
+            <input type="text" placeholder="Your name & designation">
+            <input type="tel" placeholder="Mobile number">
+            <select>
+              <option value="" disabled selected>Interested in...</option>
+              <option>AI Lab Setup</option>
+              <option>Robotics Program</option>
+              <option>Coding Curriculum</option>
+              <option>Full STEM Package</option>
+              <option>Free Demo</option>
+            </select>
+            <button class="inquiry-btn">Submit Inquiry →</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Makebot Robotic Solutions Pvt. Ltd. All rights reserved.</span>
+        <span>NEP 2020 Aligned · CBSE Approved · Made in India 🇮🇳</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Counter animation
+    function animateCount(el, target) {
+      const duration = 1800, step = 16;
+      const inc = target / (duration / step);
+      let cur = 0;
+      const t = setInterval(() => {
+        cur = Math.min(cur + inc, target);
+        const val = Math.floor(cur);
+        el.textContent = val >= 1000 ? Math.round(val / 1000) + 'K+' : (val === target && target < 100 ? val + (target === 10 ? '' : '+') : val + '+');
+        if (cur >= target) clearInterval(t);
+      }, step);
+    }
+    const statsIo = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('[data-target]').forEach(el => {
+            animateCount(el, parseInt(el.dataset.target));
+            delete el.dataset.target;
+          });
+          statsIo.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    const strip = document.querySelector('.stats-strip');
+    if (strip) statsIo.observe(strip);
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('active');
+    }
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    // Enquiry form handler
+    function handleEnquiry(e) {
+      e.preventDefault();
+      const form = document.getElementById('enquiry-form');
+      const success = document.getElementById('form-success');
+      form.style.display = 'none';
+      success.style.display = 'block';
+    }
+
+    // Sticky nav scroll
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.boxShadow = window.scrollY > 10 ? '0 1px 20px rgba(0,0,0,0.08)' : 'none';
+    }, { passive: true });
+  </script>
+</body>
+
+</html>
