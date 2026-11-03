@@ -168,6 +168,258 @@ html, body { overflow-x: hidden; width: 100%; background: var(--bg-page); }
 }
 .v2-hero-btn-ghost:hover { background: rgba(255,255,255,.12); transform: translateY(-2px); }
 
+/* ===== ABOUT MAKEX INDIA - START (temporary section, delete this block to remove) ===== */
+.v2-about {
+  padding: 0 clamp(20px, 6vw, 100px) 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  display: flow-root;
+  clip-path: inset(0 -100vmax);
+  background: #f5f5f7;
+  box-shadow: 0 0 0 100vmax #f5f5f7;
+}
+
+/* intro: text + image */
+.v2-about-intro {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 56px;
+}
+
+.v2-about-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  color: var(--red);
+  margin-bottom: 10px;
+}
+
+.v2-about-title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--purple);
+  margin-bottom: 16px;
+}
+
+.v2-about-desc {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.v2-about-steam {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.v2-about-steam li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--purple);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 14px 5px 5px;
+}
+.v2-about-steam li b {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #fff;
+  background: var(--violet);
+}
+.v2-about-steam li:nth-child(3n+2) b { background: var(--red); }
+.v2-about-steam li:nth-child(3n) b   { background: var(--dark); }
+
+/* .v2-about-media { position: relative; }
+.v2-about-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translate(14px, 14px);
+  border: 2px solid rgba(67, 32, 166, .35);
+  border-radius: var(--radius-card);
+} */
+.v2-about-img {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background: #fff;
+}
+.v2-about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.v2-about-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, .8);
+  font-size: 13px;
+  font-weight: 600;
+  background: linear-gradient(135deg, rgba(35, 35, 35, .95), rgba(67, 32, 166, .85));
+}
+/* .v2-about-placeholder::after {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 2px dashed rgba(255, 255, 255, .3);
+  border-radius: 14px;
+} */
+.v2-about-placeholder i { font-size: 44px; }
+
+/* sub headings */
+.v2-about-h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--purple);
+  text-align: center;
+  margin-bottom: 30px;
+}
+.v2-about-h3::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--red);
+  margin: 10px auto 0;
+}
+.v2-about-h3-light { color: #fff; }
+
+/* the MakeX Spirit - 4 cards */
+.v2-spirit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 48px;
+}
+.v2-spirit-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-top: 4px solid transparent;
+  border-radius: 16px;
+  padding: 26px 20px;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.v2-spirit-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+.v2-spirit-c1 { border-top-color: var(--violet); }
+.v2-spirit-c2 { border-top-color: var(--red); }
+.v2-spirit-c3 { border-top-color: var(--dark); }
+.v2-spirit-c4 { border-top-color: var(--violet); }
+
+.v2-spirit-num {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 800;
+  color: rgba(35, 35, 35, .06);
+  line-height: 1;
+}
+.v2-spirit-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(67, 32, 166, .08);
+  margin-bottom: 16px;
+}
+.v2-spirit-icon i { font-size: 26px; color: var(--violet); }
+.v2-spirit-c2 .v2-spirit-icon { background: rgba(241, 19, 19, .08); }
+.v2-spirit-c2 .v2-spirit-icon i { color: var(--red); }
+.v2-spirit-c3 .v2-spirit-icon { background: rgba(35, 35, 35, .08); }
+.v2-spirit-c3 .v2-spirit-icon i { color: var(--dark); }
+
+.v2-spirit-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--purple);
+  margin-bottom: 8px;
+}
+.v2-spirit-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* what we bring to India - dark panel */
+.v2-bring {
+  background: #232323;
+  border-radius: var(--radius-card);
+  padding: 44px clamp(24px, 5vw, 56px);
+}
+.v2-bring .v2-about-h3 { margin-bottom: 34px; }
+.v2-bring-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.v2-bring-item { padding: 4px 28px; text-align: center; }
+.v2-bring-item + .v2-bring-item { border-left: 1.5px solid rgba(255, 255, 255, .18); }
+.v2-bring-item i {
+  font-size: 32px;
+  color: var(--red);
+  display: block;
+  margin-bottom: 12px;
+}
+.v2-bring-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.v2-bring-text {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, .75);
+}
+
+@media (max-width: 860px) {
+  .v2-about-intro { grid-template-columns: 1fr; gap: 40px; }
+  /* .v2-about-media::before { transform: translate(10px, 10px); } */
+  .v2-spirit-grid { grid-template-columns: 1fr 1fr; }
+  .v2-bring-grid { grid-template-columns: 1fr; gap: 28px; }
+  .v2-bring-item { padding: 0; }
+  .v2-bring-item + .v2-bring-item { border-left: none; border-top: 1.5px solid rgba(255, 255, 255, .18); padding-top: 28px; }
+}
+
+@media (max-width: 480px) {
+  .v2-spirit-grid { grid-template-columns: 1fr; }
+}
+/* ===== ABOUT MAKEX INDIA - END ===== */
+
 /* ============================================================
    SECTION 2 — INTRO + COMPETITION DETAILS (white band, dark card)
    ============================================================ */
