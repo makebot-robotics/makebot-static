@@ -19,7 +19,7 @@ const CURRICULUM_CARDS = [
     duration: "45 min",
     projects: 15,
     price: "₹3,499",
-    icon: "ti-circuit-board",
+    icon: "ti-cpu",
     gradient: "g2",
     badge: "Popular"
   },

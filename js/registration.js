@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const res = await fetch(SCRIPT_URL, { method: 'POST', body: payload });
       const text = await res.text();
-      console.log('Status:', res.status, 'Response:', text);
       const json = JSON.parse(text);
       if (!json.success) throw new Error(json.message || 'Failed');
 

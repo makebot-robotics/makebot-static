@@ -114,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     return fetch(SCRIPT_URL, { method: 'POST', body: payload })
       .then(r => r.text().then(text => {
-        console.log('Status:', r.status, 'Response:', text);
         return JSON.parse(text);
       }))
       .then(json => {

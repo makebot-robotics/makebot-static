@@ -5,12 +5,14 @@
 
 document.addEventListener('componentsReady', () => {
 
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ── NAVBAR SCROLL ──────────────────────────
   const navbar = document.getElementById('navbar');
   if (navbar) {
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
-    });
+    }, { passive: true });
   }
 
   // ── MOBILE NAV TOGGLE ──────────────────────
@@ -19,6 +21,7 @@ document.addEventListener('componentsReady', () => {
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
       navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', navLinks.classList.contains('open') ? 'true' : 'false');
       navToggle.querySelector('i').className =
         navLinks.classList.contains('open') ? 'fa fa-times' : 'fa fa-bars';
     });
@@ -41,9 +44,42 @@ document.addEventListener('componentsReady', () => {
     currentSlide = (idx + slides.length) % slides.length;
     slides[currentSlide].classList.add('active');
     dots[currentSlide].classList.add('active');
+    syncSlides();
+  }
+
+  // Keep only the visible slide focusable/readable, and load + play the
+  // video slide only when it becomes active (saves bandwidth on first load).
+  function loadVideo(v) {
+    v.querySelectorAll('source[data-src]').forEach(s => {
+      s.src = s.dataset.src;
+      s.removeAttribute('data-src');
+    });
+    if (!v.dataset.loaded) {
+      v.dataset.loaded = '1';
+      v.load();
+    }
+  }
+
+  function syncSlides() {
+    slides.forEach((s, n) => {
+      const on = n === currentSlide;
+      s.setAttribute('aria-hidden', on ? 'false' : 'true');
+      if (on) s.removeAttribute('inert'); else s.setAttribute('inert', '');
+      const v = s.querySelector('video');
+      if (v) {
+        if (on) {
+          loadVideo(v);
+          const p = v.play && v.play();
+          if (p && p.catch) p.catch(() => { });
+        } else if (v.pause) {
+          v.pause();
+        }
+      }
+    });
   }
 
   function startSlider() {
+    if (reduceMotion) return; // respect "reduce motion" system setting
     sliderTimer = setInterval(() => goToSlide(currentSlide + 1), 8000);
   }
 
@@ -71,12 +107,34 @@ document.addEventListener('componentsReady', () => {
   });
 
   slides.forEach(slide => {
-    slide.addEventListener('click', () => {
+    const open = () => {
       const url = slide.dataset.href;
       if (url && url !== '#') window.location.href = url;
+    };
+    // keyboard + screen reader support for the clickable slides
+    slide.setAttribute('role', 'link');
+    slide.tabIndex = 0;
+    slide.addEventListener('click', open);
+    slide.addEventListener('keydown', e => {
+      if (e.key === 'Enter') open();
     });
   });
 
+  // slider dots: make them real keyboard-operable controls
+  dots.forEach((dot, i) => {
+    dot.setAttribute('role', 'button');
+    dot.tabIndex = 0;
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    dot.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        goToSlide(i);
+        resetSlider();
+      }
+    });
+  });
+
+  syncSlides();
   startSlider();
 
   // ── STATS COUNTER ──────────────────────────
@@ -131,7 +189,7 @@ document.addEventListener('componentsReady', () => {
       pSlides[idx].classList.add('active');
       pDots[idx].classList.add('active');
     }
-    function start() { timer = setInterval(() => go(idx + 1), 5000); }
+    function start() { if (reduceMotion) return; timer = setInterval(() => go(idx + 1), 5000); }
     function stop() { clearInterval(timer); }
     function restart() { stop(); start(); }
 

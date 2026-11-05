@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Keep private / unfinished areas out of search results
+Disallow: /Admin.html
+Disallow: /Checkout.html
+Disallow: /event-pagemain-old.html
+Disallow: /demo_pages/
+
+# Add once the domain is final:
+# Sitemap: https://YOUR-DOMAIN/sitemap.xml
