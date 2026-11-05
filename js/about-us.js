@@ -1,5 +1,5 @@
 /* ================================================================
-   MAKEBOT – About Us page interactions
+   MAKEBOT - About Us page interactions
    - Reveal-on-scroll for elements with .reveal
    - Animated count-up for elements with [data-count]
    ================================================================ */

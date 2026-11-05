@@ -1,6 +1,6 @@
 'use strict';
 /* ============================================================
-   MAKEBOT – SITE SEARCH
+   MAKEBOT - SITE SEARCH
    Works on every page. Load AFTER Components.js (and after
    js/products-data.js on pages that have it, though it's not
    required — this file checks for PRODUCTS before using it).

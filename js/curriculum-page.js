@@ -1,7 +1,7 @@
 const CURRICULUM_CARDS = [
   {
     title: "Robo Beginners",
-    grade: "Grade 1 – 3",
+    grade: "Grade 1 - 3",
     desc: "Fun, story-based introduction to robotics, shapes, and basic movement using block coding.",
     lessons: 40,
     duration: "45 min",
@@ -13,7 +13,7 @@ const CURRICULUM_CARDS = [
   },
   {
     title: "Robo Explorer",
-    grade: "Grade 4 – 6",
+    grade: "Grade 4 - 6",
     desc: "Sensors, motors, and simple machines — students build and program their first real robots.",
     lessons: 60,
     duration: "45 min",
@@ -25,7 +25,7 @@ const CURRICULUM_CARDS = [
   },
   {
     title: "Robo Engineer",
-    grade: "Grade 7 – 9",
+    grade: "Grade 7 - 9",
     desc: "Arduino, line followers, obstacle detection — full STEM integration with coding challenges.",
     lessons: 80,
     duration: "60 min",
@@ -37,7 +37,7 @@ const CURRICULUM_CARDS = [
   }
 //   {
 //     title: "Robo Pro",
-//     grade: "Grade 10 – 12",
+//     grade: "Grade 10 - 12",
 //     desc: "AI, Python, and IoT — prepares senior students for competitions and engineering careers.",
 //     lessons: 100,
 //     duration: "60 min",
@@ -49,7 +49,7 @@ const CURRICULUM_CARDS = [
 //   },
 //   {
 //     title: "Demooooo",
-//     grade: "Grade 10 – 12",
+//     grade: "Grade 10 - 12",
 //     desc: "AI, Python, and IoT — prepares senior students for competitions and engineering careers.",
 //     lessons: 100,
 //     duration: "60 min",
@@ -61,7 +61,7 @@ const CURRICULUM_CARDS = [
 //   },
 //   {
 //     title: "Demooooo2",
-//     grade: "Grade 10 – 12",
+//     grade: "Grade 10 - 12",
 //     desc: "AI, Python, and IoT — prepares senior students for competitions and engineering careers.",
 //     lessons: 100,
 //     duration: "60 min",

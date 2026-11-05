@@ -1,5 +1,5 @@
 /* ============================================================
-   robot_lab_page.js
+   robot-lab-page.js
    Edit the data arrays below to update page content.
    Renderers at the bottom handle the HTML automatically.
    ============================================================ */
@@ -25,7 +25,7 @@ const LAB_PACKAGES = [
     desc: "A compact, fully equipped lab for small schools taking their first step into robotics.",
     includes: [
       "10 robotics kits",
-      "Basic curriculum (Grade 1–5)",
+      "Basic curriculum (Grade 1-5)",
       "Teacher training (1 day)",
       "Lab furniture & layout design",
       "6-month support"
@@ -39,11 +39,11 @@ const LAB_PACKAGES = [
   },
   {
     name: "Explorer Lab",
-    schoolSize: "200–500 students",
+    schoolSize: "200-500 students",
     desc: "A mid-size lab with advanced kits and curriculum covering primary and middle school.",
     includes: [
       "20 robotics kits",
-      "Curriculum for Grade 1–8",
+      "Curriculum for Grade 1-8",
       "Teacher training (2 days)",
       "Lab branding & signage",
       "1-year support"
@@ -57,11 +57,11 @@ const LAB_PACKAGES = [
   },
   {
     name: "Pro Lab",
-    schoolSize: "500–1000 students",
+    schoolSize: "500-1000 students",
     desc: "A full-scale lab for large schools with Arduino, IoT, and AI-ready infrastructure.",
     includes: [
       "35 robotics & IoT kits",
-      "Curriculum for Grade 1–12",
+      "Curriculum for Grade 1-12",
       "Teacher training (3 days)",
       "Dedicated lab manager (1 month)",
       "2-year AMC included"
@@ -121,7 +121,7 @@ const PROCESS_STEPS = [
   { title: "Free Consultation", desc: "Tell us about your school — we assess your space, budget, and goals."          },
   { title: "Custom Proposal",   desc: "Receive a detailed lab design and package proposal within 48 hours."           },
   { title: "Site Visit",        desc: "Our team visits to finalise layout, measurements, and civil requirements."     },
-  { title: "Lab Build",         desc: "We install furniture, equipment, and branding — usually in 2–3 days."          },
+  { title: "Lab Build",         desc: "We install furniture, equipment, and branding — usually in 2-3 days."          },
   { title: "Teacher Training",  desc: "On-site training for your staff so they're ready to teach from day one."       },
   { title: "Launch Day",        desc: "Inauguration support and a demo class to kick off your robotics programme."    }
 ];
@@ -132,7 +132,7 @@ const PROCESS_STEPS = [
      quote    : string — testimonial text
      name     : string — person name
      role     : string — designation and school
-     initials : string — 1–2 chars for avatar
+     initials : string — 1-2 chars for avatar
      stars    : number — rating out of 5
    ──────────────────────────────────────────────────────────── */
 const TESTIMONIALS = [
@@ -168,7 +168,7 @@ const TESTIMONIALS = [
 const FAQS = [
   {
     q: "How long does the complete lab setup take?",
-    a: "Typically 4–6 weeks from signing the agreement — this includes design finalisation, procurement, civil work (if needed), installation, branding, and teacher training. Compact starter labs can be ready in as little as 2 weeks."
+    a: "Typically 4-6 weeks from signing the agreement — this includes design finalisation, procurement, civil work (if needed), installation, branding, and teacher training. Compact starter labs can be ready in as little as 2 weeks."
   },
   {
     q: "Do you provide the robotics curriculum along with the lab?",

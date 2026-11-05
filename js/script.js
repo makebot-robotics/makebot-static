@@ -1,5 +1,5 @@
 /* =========================================
-   MAKEBOT – HOMEPAGE SCRIPT
+   MAKEBOT - HOMEPAGE SCRIPT
    Runs after Components.js has injected the header, footer and cart drawer.
    ========================================= */
 

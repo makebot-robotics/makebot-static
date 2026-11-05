@@ -11,7 +11,7 @@
   reviews: 50,
   desc: 'A short description of the product...',
   specs: {
-    'Age Range': '8–12 years',
+    'Age Range': '8-12 years',
     'Difficulty': 'Beginner',
     // ...whatever spec rows make sense
   },

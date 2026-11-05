@@ -3,7 +3,7 @@
 //  Loads products from the backend API instead of a hardcoded
 //  list. Uses a synchronous request so PRODUCTS is fully
 //  populated before any script that loads after this one runs
-//  (shop.js, product_details.js, script.js, search.js all
+//  (shop.js, product-details.js, script.js, search.js all
 //  expect that, unchanged from before).
 //
 //  If you move the backend to a different URL later (e.g. once

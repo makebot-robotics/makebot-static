@@ -56,7 +56,7 @@ document.addEventListener('componentsReady', () => {
 // ── RENDER PRODUCT ────────────────────────────────────────────────────────────
 function renderProduct(p) {
   $('breadcrumbName').textContent = p.name;
-  document.title = `${p.name} – MakeBot`;
+  document.title = `${p.name} - MakeBot`;
 
   const discount = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
 

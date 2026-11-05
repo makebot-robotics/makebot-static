@@ -1,6 +1,6 @@
 'use strict';
 /* ============================================================
-   MAKEBOT – SHARED CART MODULE
+   MAKEBOT - SHARED CART MODULE
    ------------------------------------------------------------
    Single source of truth for the cart across index.html,
    shop.html and product_details.html.
@@ -18,7 +18,7 @@
      1. Components.js        (injects Header/Footer/CartDrawer)
      2. js/products-data.js  (defines PRODUCTS)
      3. js/Cart.js           (this file)
-     4. page script (script.js / shop.js / product_details.js)
+     4. page script (script.js / shop.js / product-details.js)
 
    Usage from a page script:
      document.addEventListener('componentsReady', () => {
